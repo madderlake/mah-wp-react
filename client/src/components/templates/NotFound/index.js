@@ -5,9 +5,11 @@ class NotFound extends Component {
 	render() {
 
 		return (
-			<article className="not-found">
-				<h1>Not Found</h1>
-			</article>
+			<div className="grid-container">
+				<article className="not-found">
+					<h1>Not Found</h1>
+				</article>
+			</div>
 		);
 	};
 };

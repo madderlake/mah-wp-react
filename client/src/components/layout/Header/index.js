@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Menu, MenuItem, Alignments } from 'react-foundation';
 import { Link } from 'react-router-dom';
 
 import api from '../../../api';
@@ -25,8 +26,9 @@ class Header extends Component {
 	buildMenu() {
 		if (this.props.mainMenu) {
 			return this.props.mainMenu.map((item, i) => {
+				
 				return (
-					<Link key={item.ID} to={item.url}>{item.title}</Link>
+					<MenuItem key={item.ID}><Link to={item.url}>{item.title}</Link></MenuItem>
 				);
 			})
 		}
@@ -37,9 +39,14 @@ class Header extends Component {
 	render() {
 		return (
 			<header className="header-main">
-				<nav>
-					{this.buildMenu()}
+			<div className="grid-container">
+				<nav className="grid-x grid-padding-x">
+					<Menu alignment={Alignments.LEFT}>
+						{this.buildMenu()}
+					</Menu>
+				
 				</nav>
+				</div>
 			</header>
 		);
 	}

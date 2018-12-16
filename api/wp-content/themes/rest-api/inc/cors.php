@@ -15,11 +15,12 @@ add_action( 'rest_api_init', function() {
 		// Create React App Default Port 3000
 		$parsed = parse_url($allowed_origin_1);
 		$allowed_origin_2 = $parsed['scheme'] . '://' . $parsed['host'] . ':3000';
+		//$allowed_origin_3 = $parsed['scheme'] . '://' . $parsed['host'] . ':8080';
 
 		// Need to allow both SSR and dev CRA access
 		if(isset($_SERVER['HTTP_ORIGIN'])) {
 			$origin = $_SERVER['HTTP_ORIGIN'];
-			if($origin == $allowed_origin_1 || $origin == $allowed_origin_2) {
+			if($origin == $allowed_origin_1 || $origin == $allowed_origin_2 ) {
 				header('Access-Control-Allow-Origin: ' . $origin);
 			}
 		}

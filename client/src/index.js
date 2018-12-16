@@ -1,3 +1,6 @@
+import 'foundation-sites/dist/css/foundation.min.css';
+//import $ from 'jquery';
+import 'foundation-sites/dist/js/foundation.min.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Loadable from 'react-loadable';

@@ -13,10 +13,12 @@ class Default extends Component {
 			let data = this.props.data;
 
 			return (
-				<article className={`${this.props.slug} default-template`}>
-					<h1>{data.title.rendered}</h1>
-					<ContentBlock content={data.content.rendered} />
-				</article>
+				<div className="grid-container">
+					<article className={`${this.props.slug} default-template`}>
+						<h1>{data.title.rendered}</h1>
+						<ContentBlock content={data.content.rendered} />
+					</article>
+				</div>
 			);
 		}
 
