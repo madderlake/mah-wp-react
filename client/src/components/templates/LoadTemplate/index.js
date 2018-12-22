@@ -26,12 +26,17 @@ const AsyncPost = AsyncChunks.generateChunk(() =>
 
 const AsyncSidebar = AsyncChunks.generateChunk(() => 
 	import( /* webpackChunkName: "Sidebar" */ '../Sidebar'));
+	
+const AsyncContentFlex = AsyncChunks.generateChunk(() => 
+	import( /* webpackChunkName: "ContentFlex" */ '../ContentFlex'));
+
 
 const templates = {
 	home: AsyncHome,
 	default: AsyncDefault,
 	post: AsyncPost,
-	sidebar: AsyncSidebar
+	sidebar: AsyncSidebar,
+	contentflex: AsyncContentFlex
 }
 
 const mapStateToProps = state => ({
