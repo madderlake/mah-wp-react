@@ -10,7 +10,7 @@ const responseBody = res => res.body;
 const requests = {
 	get: url =>
 		superagent.get(`${API_ROOT}${url}`).then( responseBody ),
-	getWithCredentials: url =>
+		getWithCredentials: url =>
 		superagent.get(`${API_ROOT}${url}`).withCredentials().then( responseBody )
 }
 
@@ -22,17 +22,33 @@ const Menus = {
 const Content = {
 	data: type =>
 		requests.get(`/wp-json/wp/v2/${type}?_embed`),
-	dataBySlug: (type, slug) =>
+		dataBySlug: (type, slug) =>
 		requests.get(`/wp-json/wp/v2/${type}?slug=${slug}&_embed`),
-	previewDataBySlug: (type, slug, wpnonce) =>
+		previewDataBySlug: (type, slug, wpnonce) =>
 		requests.getWithCredentials(`/wp-json/react-wp-rest/preview?type=${type}&slug=${slug}&_wpnonce=${wpnonce}&_embed`),
-	previewDataById: (type, id, wpnonce) =>
+		previewDataById: (type, id, wpnonce) =>
 		requests.getWithCredentials(`/wp-json/react-wp-rest/preview?type=${type}&id=${id}&_wpnonce=${wpnonce}&status=draft&_embed`),
-	pageList: () =>
+		pageList: () =>
 		requests.get('/wp-json/react-wp-rest/pages/list')
+		
+	
 } 
+
+const AcfContent = {
+	 data: type =>
+		requests.get(`/wp-json/acf/v2/${type}?_embed`),
+		dataBySlug: (type, slug) =>
+		requests.get(`/wp-json/acf/v2/${type}?slug=${slug}&_embed`),
+		previewDataBySlug: (type, slug, wpnonce) =>
+		requests.getWithCredentials(`/wp-json/react-wp-rest/preview?type=${type}&slug=${slug}&_wpnonce=${wpnonce}&_embed`),
+		previewDataById: (type, id, wpnonce) =>
+		requests.getWithCredentials(`/wp-json/react-wp-rest/preview?type=${type}&id=${id}&_wpnonce=${wpnonce}&status=draft&_embed`),
+		pageList: () =>
+		requests.get('/wp-json/react-wp-rest/pages/list')
+}
 
 export default {
 	Menus,
-	Content
+	Content,
+	AcfContent
 }

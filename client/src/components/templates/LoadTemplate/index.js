@@ -27,8 +27,8 @@ const AsyncPost = AsyncChunks.generateChunk(() =>
 const AsyncSidebar = AsyncChunks.generateChunk(() => 
 	import( /* webpackChunkName: "Sidebar" */ '../Sidebar'));
 	
-const AsyncContentFlex = AsyncChunks.generateChunk(() => 
-	import( /* webpackChunkName: "ContentFlex" */ '../ContentFlex'));
+const AsyncFlex = AsyncChunks.generateChunk(() => 
+	import( /* webpackChunkName: "FlexContent" */ '../FlexContent'));
 
 
 const templates = {
@@ -36,7 +36,7 @@ const templates = {
 	default: AsyncDefault,
 	post: AsyncPost,
 	sidebar: AsyncSidebar,
-	contentflex: AsyncContentFlex
+	flex: AsyncFlex
 }
 
 const mapStateToProps = state => ({
@@ -139,12 +139,13 @@ class LoadTemplate extends Component {
 
 		let Meta = () => null;
 
-<<<<<<< HEAD
-		const Template = templates[this.props.template];
-		console.log(this.props.template);
-=======
+
+		//const Template = templates[this.props.template];
+		//console.log(this.props.template);
+
 		const Template = templates[this.state.template];
->>>>>>> ab4f84a8c6ddb1c71ec17110b6dc149f6eb97c7a
+		//console.log(this.state.template);
+
 
 		if (!Template) {
 			return <Redirect to="/not-found"/>;
