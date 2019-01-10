@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import ContentBlock from '../../utilities/ContentBlock';
 
+import Section from '../../layout/Flex';
+
 import './index.css';
 
 class FlexContent extends Component {
@@ -10,7 +12,7 @@ class FlexContent extends Component {
 
 		if (this.props.data) {
 
-			let data = this.props.data;
+			//let data = this.props.data;
 			let acf = this.props.data.acf;
 			
 			const blocks = acf.content;
@@ -23,14 +25,23 @@ class FlexContent extends Component {
 						<h1>{acf.page_title}</h1>
 						
 						{ blocks.map((block, index) => (
-							
-							
+/*
+					<section className={block.section_class} key={index}>
+						<h2>{block.section_title }</h2>	
+					<ContentBlock content={block.section_content} />
+						</section>							
 						
-							<section className={`content-${index}`} dangerouslySetInnerHTML={{ __html: block.section_content || "Nothing to see here" }}
-							<h2>{{ block.section_class }}</h2>
+*/
+						
+							<Section className={block.section_class} key={index}>
+						
+// 								<SectionTitle title={block.section_title} />
+								<ContentBlock content={block.section_content} />
+							</Section>
+						
 						))
+					
 						}
-						 />
 					</article>
 				</div>
 			);
