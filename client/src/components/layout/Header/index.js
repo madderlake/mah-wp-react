@@ -39,8 +39,8 @@ class Header extends Component {
 	render() {
 		return (
 			<header className="header-main">
-			<div className="grid-container">
-				<nav className="grid-x grid-padding-x">
+			<div className="container">
+				<nav className="container">
 					<Menu alignment={Alignments.LEFT}>
 						{this.buildMenu()}
 					</Menu>

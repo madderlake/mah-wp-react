@@ -31,9 +31,11 @@ add_action( 'rest_api_init', function() {
 	});
 }, 15 );
 
+/*
 add_filter('rest_url', function($url) {
     $url = str_replace(home_url(), site_url(), $url);
     return $url;
 });
+*/
 
 ?>
