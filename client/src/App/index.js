@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import {withStyles} from '@material-ui/core';
 import AsyncChunks from '../components/utilities/AsyncLoader';
 import NotFound from '../components/templates/NotFound';
 import Header from '../components/layout/Header';
@@ -17,19 +16,19 @@ const mapDispatchToProps = (dispatch) => ({
 	loadPages: (list) => dispatch({ type: 'LOAD_PAGES_LIST', payload: list })
 });
 
-const styles = (muiTheme) => ({
-	'@global': {
-		'p,li, a, span': {
-			fontFamily: muiTheme.typography.fontFamily,
-			fontSize: muiTheme.typography.body1.fontSize
-		}	,
-		container: {
-			display: 'grid',
-			gridTemplateColumns: 'repeat(12, 1fr)',
-			padding: `${muiTheme.spacing.unit * 3}px`,
-		}
-	}
-})
+// const styles = (muiTheme) => ({
+// 	'@global': {
+// 		'p,li, a, span': {
+// 			fontFamily: muiTheme.typography.fontFamily,
+// 			fontSize: muiTheme.typography.body1.fontSize
+// 		}	,
+// 		container: {
+// 			display: 'grid',
+// 			gridTemplateColumns: 'repeat(12, 1fr)',
+// 			padding: `${muiTheme.spacing.unit * 3}px`,
+// 		}
+// 	}
+// })
 
 // console.log(muiTheme);
 class App extends Component {
@@ -127,4 +126,4 @@ class App extends Component {
 }
 
 //export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
-export default (withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App))));
+export default (withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));

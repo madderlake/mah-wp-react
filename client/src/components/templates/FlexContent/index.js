@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-//import ContentBlock from '../../utilities/ContentBlock';
-//import {Tabs, TabItem, TabsContent }from 'react-foundation';
-
-//import {createMuiTheme } from '@material-ui/core/styles';
 import Section from  '../../layout/Flex/Section';
-import Tabset  from '../../layout/Flex/Tabset';
+//import Tabset  from '../../layout/Flex/Tabset';
 
 
 import './index.css';
@@ -48,7 +44,7 @@ class FlexContent extends Component {
 					return <Section {...props} />
 					case "tab_set":
 					//console.log(tabsetProps)
-					return <Tabset {...tabsetProps} />
+					//return <Tabset {...tabsetProps} />
 					default:
 					return <Section {...props} />
 				}

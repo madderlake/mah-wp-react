@@ -1,7 +1,10 @@
-/*
-nav {
+
+.nav {
 	a {
 		margin: 1em;
+
+		&.active {
+			color: red;
+		}
 	}
 }
-*/

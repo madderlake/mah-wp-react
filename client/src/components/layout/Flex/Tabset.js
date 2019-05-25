@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Tabs, TabItem, TabsContent } from 'react-foundation';
+//import {Tabs, TabItem, TabsContent } from 'react-foundation';
 import ContentBlock from '../../utilities/ContentBlock';
 //import 'foundation-sites/dist/js/foundation.min.js';
 import './index.css';
@@ -32,7 +32,7 @@ class Tabset extends Component {
 
 			let activeTab = index + 1 === this.state.activeTab ? 'is-active' : '';
 
-			return <TabItem key={index} className={`${tab.tab_class} ${activeTab}`}><a href={`#panel${index + 1}`} data-tabs-target={`panel${index + 1}`}> {tab.tab_title} </a></TabItem>
+		//	return <TabItem key={index} className={`${tab.tab_class} ${activeTab}`}><a href={`#panel${index + 1}`} data-tabs-target={`panel${index + 1}`}> {tab.tab_title} </a></TabItem>
 
 		}
 
@@ -59,16 +59,16 @@ class Tabset extends Component {
 		<section className="grid-container tab-set">
 
 
-			<Tabs className={this.props.tabsetClass} >
+		{/* <Tabs className={this.props.tabsetClass} >
 
 				{getTabs()}
 
-			</Tabs>
+			</Tabs> */}
 
-			 <TabsContent>
+			 {/* <TabsContent>
 			 	{getTabsContent()}
 
-			 </TabsContent>
+			 </TabsContent> */}
 
 		</section>
 		);

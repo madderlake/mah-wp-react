@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Menu, MenuItem, Alignments } from 'react-foundation';
-import { Link } from 'react-router-dom';
+import { Nav, NavItem, Container } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 import api from '../../../api';
 
@@ -28,7 +28,7 @@ class Header extends Component {
 			return this.props.mainMenu.map((item, i) => {
 				
 				return (
-					<MenuItem key={item.ID}><Link to={item.url}>{item.title}</Link></MenuItem>
+					<NavItem as="li" eventkey={item.url} key={item.ID}><Link to={item.url}>{item.title}</Link></NavItem>
 				);
 			})
 		}
@@ -39,14 +39,17 @@ class Header extends Component {
 	render() {
 		return (
 			<header className="header-main">
-			<div className="container">
-				<nav className="container">
-					<Menu alignment={Alignments.LEFT}>
-						{this.buildMenu()}
-					</Menu>
+			<Container >
+				<Nav fill as="ul" activeKey={ this.selectedKey } onSelect={ this._onSelect }>
+					
+					{this.buildMenu()}
+					
+						
+					
 				
-				</nav>
-				</div>
+				</Nav>
+				</Container>
+				
 			</header>
 		);
 	}

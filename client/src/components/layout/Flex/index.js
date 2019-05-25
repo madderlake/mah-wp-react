@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-//import ContentBlock from '../../utilities/ContentBlock';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import './index.css';
 
 
@@ -7,13 +8,13 @@ import './index.css';
 class Section extends Component {
 	
 	const title = '';
+
 	render(){
 	return  (
 		<section className={this.props.className} >
-				<SectionTitle title={title}/> 
-					
+				<SectionTitle title={title}/> 					
 					{this.props.children}	
-			</section>
+		</section>
 		);
 	}		
 }
