@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Container, Row, Col} from 'react-bootstrap';
 import ContentBlock from '../../utilities/ContentBlock';
 
 import './index.css';
@@ -13,19 +13,20 @@ class Sidebar extends Component {
 			let data = this.props.data;
 
 			return (
-				<div className="grid-container">
-					<div className="grid-x grid-padding-x">
-						<div className="cell small-8">
+				<Container>
+					<Row className="pt-3">
+						<Col md={8}>	
 							<article className={`${this.props.slug} sidebar-template`}>
 								<h1>{data.title.rendered}</h1>
 								<ContentBlock content={data.content.rendered} />
 							</article>
-						</div>
-						<div className="cell small-4">
+				
+							</Col>
+						<Col md={4}>
 							<h4>This is the sidebar - ready for widgets and such!</h4>
-						</div>
-					</div>
-				</div>
+						</Col>
+						</Row>
+				</Container>
 			);
 		}
 

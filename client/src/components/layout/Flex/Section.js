@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import {Container} from 'react-bootstrap';
+//import Row from 'react-bootstrap/Row';
 import './index.css';
+import ContentBlock from '../../utilities/ContentBlock';
 
 
 class Section extends Component {
@@ -11,10 +12,13 @@ class Section extends Component {
 	return  (
 		<section className={this.props.inGrid  ? `container ${this.props.className}` : `container-fluid  ${this.props.className}`}
 			style={this.props.bgImg ? {backgroundImage:`url(${this.props.bgImg})`}: null} >
-				<Row>
+				<Container>
+					
 					<Title title={this.props.title} titleClass={this.props.titleClasses}/>
-					{this.props.children}
-				</Row>
+					<ContentBlock content={this.props.content} />
+					</Container>
+					
+				{/* </Row> */}
 			
 		</section>
 		);

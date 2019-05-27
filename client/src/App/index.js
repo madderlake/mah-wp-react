@@ -7,6 +7,7 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import LoadTemplate from '../components/templates/LoadTemplate';
 import api from '../api';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const mapStateToProps = (state) => ({
 	pageList: state.api.lists.pages

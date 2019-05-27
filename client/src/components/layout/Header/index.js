@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Nav, NavItem, Container } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
-
+import { Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import api from '../../../api';
 
 import './index.css';
@@ -21,14 +21,18 @@ class Header extends Component {
 		super(props);
 		this.props.loadMenu(api.Menus.bySlug('main'));
 		this.buildMenu = this.buildMenu.bind(this);
+		
 	}
 
 	buildMenu() {
+		
 		if (this.props.mainMenu) {
 			return this.props.mainMenu.map((item, i) => {
-				
+				const pageURI = this.props.location.pathname;
+				console.log(pageURI);
+
 				return (
-					<NavItem as="li" eventkey={item.url} key={item.ID}><Link to={item.url}>{item.title}</Link></NavItem>
+					<NavItem as="li" key={item.ID}><Link to={item.url} className={`nav-link${item.url === pageURI ? " active" : ""}`}>{item.title}</Link></NavItem>
 				);
 			})
 		}
@@ -55,4 +59,4 @@ class Header extends Component {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
