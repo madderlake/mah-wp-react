@@ -2,13 +2,13 @@
 //import {createMuiTheme} from '@material-ui/core/styles';
 //import CssBaseline from '@material-ui/core/CssBaseline';
 // import { baseTheme } from './themes/themes';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Loadable from 'react-loadable';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom'
-import configureStore from './store';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import Loadable from "react-loadable";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import configureStore from "./store";
+import App from "./App";
 
 // const muiTheme = createMuiTheme({
 // 		typography: {
@@ -17,33 +17,32 @@ import App from './App';
 // 		palette: {
 // 			//type: 'dark',
 // 		  }
-// 	});	
-if (process.env.NODE_ENV === 'production') {
+// 	});
+if (process.env.NODE_ENV === "production") {
+  const store = configureStore(window.PAGE_STATE || {});
 
-	const store = configureStore( window.PAGE_STATE || {} );
-
-	window.onload = () => {
-		Loadable.preloadReady().then(() => {
-			ReactDOM.hydrate(
-				<Provider store={store}>
-					<Router>
-						<App />
-					</Router>
-				</Provider>
-			, document.getElementById('root'));
-		})
-	}
+  window.onload = () => {
+    Loadable.preloadReady().then(() => {
+      ReactDOM.hydrate(
+        <Provider store={store}>
+          <Router>
+            <App />
+          </Router>
+        </Provider>,
+        document.getElementById("root")
+      );
+    });
+  };
 } else {
+  const store = configureStore();
 
-	const store = configureStore();
+  ReactDOM.render(
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>,
 
-	ReactDOM.render(
-		
-			<Provider store={store}>
-				<Router>
-					<App />
-				</Router>
-			</Provider>
-		
-	, document.getElementById('root'));
+    document.getElementById("root")
+  );
 }

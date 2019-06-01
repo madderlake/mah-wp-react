@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux';
-import AsyncChunks from '../components/utilities/AsyncLoader';
-import NotFound from '../components/templates/NotFound';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-import LoadTemplate from '../components/templates/LoadTemplate';
-import api from '../api';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import AsyncChunks from "../components/utilities/AsyncLoader";
+import NotFound from "../components/templates/NotFound";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
+import LoadTemplate from "../components/templates/LoadTemplate";
+import api from "../api";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const mapStateToProps = (state) => ({
-	pageList: state.api.lists.pages
+const mapStateToProps = state => ({
+  pageList: state.api.lists.pages
 });
 
-const mapDispatchToProps = (dispatch) => ({
-	loadPages: (list) => dispatch({ type: 'LOAD_PAGES_LIST', payload: list })
+const mapDispatchToProps = dispatch => ({
+  loadPages: list => dispatch({ type: "LOAD_PAGES_LIST", payload: list })
 });
 
 // const styles = (muiTheme) => ({
@@ -33,98 +33,101 @@ const mapDispatchToProps = (dispatch) => ({
 
 // console.log(muiTheme);
 class App extends Component {
+  constructor(props) {
+    super(props);
 
-	constructor(props) {
-		super(props);
+    this.buildRoutes = pages => {
+      if (this.props.pageList && this.props.pageList.length > 0) {
+        return [
+          <Route
+            key="posts"
+            render={props => (
+              <LoadTemplate {...props} template="post" type="post" />
+            )}
+            exact
+            path="/post/:slug"
+          />,
 
-		this.buildRoutes = (pages) => {
+          pages.map((route, i) => {
+            // If home, set path to empty string, = '/'
+            if (route.slug === "home") {
+              route.path = "";
+            }
 
-			if (this.props.pageList && this.props.pageList.length > 0) {
-				return [
-					<Route
-						key="posts"
-						render={(props)=>
-							<LoadTemplate
-							{...props}
-							template="post"
-							type="post" />
-						}
-						exact
-						path="/post/:slug"/>,
+            // If template is blank, set to default
+            if (route.template === "") {
+              route.template = "default";
+            }
 
-					pages.map((route, i) => {
+            // Default WP REST API expects /pages/ and /posts/ formatting
+            // Custom post types are all singular (sigh)
+            route.type =
+              route.type === "page"
+                ? "pages"
+                : route.type === "post"
+                ? "posts"
+                : route.type;
 
-						// If home, set path to empty string, = '/'
-						if (route.slug === 'home') {
-							route.path = '';
-						}
+            return (
+              <Route
+                render={props => (
+                  <LoadTemplate
+                    {...props}
+                    template={route.template}
+                    slug={route.slug}
+                    type={route.type}
+                  />
+                )}
+                exact
+                key={i}
+                path={`/${decodeURIComponent(route.path)}`}
+              />
+            );
+          }),
 
-						// If template is blank, set to default
-						if (route.template === '') {
-							route.template = 'default'
-						}
+          <Route
+            exact
+            key="wp-draft"
+            page="/wp-draft"
+            render={props => (
+              <LoadTemplate {...props} slug={"wp-draft"} type={"pages"} />
+            )}
+          />,
 
-						// Default WP REST API expects /pages/ and /posts/ formatting
-						// Custom post types are all singular (sigh)
-						route.type = route.type === 'page'
-							? 'pages'
-							: route.type === 'post'
-							? 'posts'
-							: route.type;
+          <Route key="not-found" component={NotFound} />
+        ];
+      }
+    };
+  }
 
-						return (
-							<Route
-								render={ (props)=>
-									<LoadTemplate
-									{...props}
-									template={route.template}
-									slug={route.slug}
-									type={route.type} />
-								}
-								exact
-								key={i}
-								path={`/${decodeURIComponent(route.path)}`}/>
-						)
-					}),
+  componentDidMount() {
+    //$(document).foundation();
 
-					<Route exact key="wp-draft" page="/wp-draft" render={props =>
-						<LoadTemplate {...props} slug={'wp-draft'} type={'pages'} />} />,
+    this.props.loadPages(api.Content.pageList());
 
-					<Route key="not-found" component={NotFound} />
-				]
-			}
-		}
-	}
+    // Over-eager load code split chunks
+    // Two seconds after App mounts (wait for more important resources)
+    setTimeout(AsyncChunks.loadChunks, 2 * 1000);
+  }
 
-	componentDidMount() {
-		//$(document).foundation();
-		
-		this.props.loadPages(api.Content.pageList());
-
-		// Over-eager load code split chunks
-		// Two seconds after App mounts (wait for more important resources)
-		setTimeout(AsyncChunks.loadChunks, 2 * 1000);
-	}
-
-	render() {
-	
-		return (
-			// <MuiThemeProvider theme={muiTheme}>
-		    //   <CssBaseline />
-				<div className={`app`}>
-				
-					<Header />
-					<Switch>
-						{ this.buildRoutes(this.props.pageList) }
-					</Switch>
-					<Footer />
-				
-				</div>
-			//</MuiThemeProvider>
-
-		);
-	}
+  render() {
+    return (
+      // <MuiThemeProvider theme={muiTheme}>
+      //   <CssBaseline />
+      <div className={`app`}>
+        <Header />
+        <Switch>{this.buildRoutes(this.props.pageList)}</Switch>
+        <Footer />
+      </div>
+      //</MuiThemeProvider>
+    );
+  }
 }
 
 //export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
-export default (withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
