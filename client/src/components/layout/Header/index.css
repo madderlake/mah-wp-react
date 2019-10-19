@@ -1,4 +1,28 @@
-.nav a {
-  margin: 1em; }
-  .nav a.active {
-    color: red; }
+.navbar .nav-link {
+  padding: 0; }
+  .navbar .nav-link.active {
+    color: #6aff00; }
+
+.bg-dark .nav-link {
+  color: white; }
+
+.navbar {
+  margin-bottom: 2.5rem; }
+
+section {
+  border-top: 1px solid #dddddd;
+  padding: 2rem 0; }
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1em; }

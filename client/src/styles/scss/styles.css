@@ -1,0 +1,11 @@
+@import url(~bootstrap/dist/css/bootstrap.min.css);
+@import-normalize;
+body {
+  font-size: 100%; }
+
+h1 {
+  color: #ed1249; }
+
+h4,
+.h4 {
+  font-size: 1.25rem; }

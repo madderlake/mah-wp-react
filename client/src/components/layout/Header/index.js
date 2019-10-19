@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Navbar, Nav, NavItem, Container } from "react-bootstrap";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  Container,
+  Collapse
+} from "reactstrap";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import api from "../../../api";
-
-import "./index.css";
+import "./index.scss";
 
 const mapStateToProps = state => ({
   mainMenu: state.api.menus.main
@@ -20,16 +27,26 @@ class Header extends Component {
     super(props);
     this.props.loadMenu(api.Menus.bySlug("main"));
     this.buildMenu = this.buildMenu.bind(this);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
 
   buildMenu() {
     if (this.props.mainMenu) {
       return this.props.mainMenu.map((item, i) => {
         const pageURI = this.props.location.pathname;
-        console.log(pageURI);
+        //console.log(pageURI);
 
         return (
-          <NavItem as="li" key={item.ID}>
+          <NavItem key={item.ID}>
             <Link
               to={item.url}
               className={`nav-link${item.url === pageURI ? " active" : ""}`}
@@ -48,20 +65,25 @@ class Header extends Component {
     return (
       <header className="header-main">
         {/* <Container> */}
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home">Mary A. Hayne</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav
-              fill
-              as="ul"
-              activeKey={this.selectedKey}
-              onSelect={this._onSelect}
-            >
-              {this.buildMenu()}
-            </Nav>
+        <Navbar /*collapseOnSelect*/ expand="md" color="dark">
+          <NavbarBrand href="/">Mary A. Hayne</NavbarBrand>
+          <NavbarToggler
+            onClick={this.toggle}
+            aria-controls="responsive-navbar-nav"
+          />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Container>
+              <Nav
+                className="navbar"
+                fill
+                //activeKey={this.selectedKey}
+                //onSelect={this._onSelect}
+              >
+                {this.buildMenu()}
+              </Nav>
+            </Container>
             {/* </Container> */}
-          </Navbar.Collapse>
+          </Collapse>
         </Navbar>
       </header>
     );

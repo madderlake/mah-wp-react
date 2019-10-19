@@ -1,0 +1,13 @@
+.card-set {
+  .card {
+    margin: 1rem 0;
+
+    .card-body {
+      padding: 1.25rem 1rem;
+    }
+  }
+  h2,
+  .h2 {
+    flex-basis: 100%;
+  }
+}

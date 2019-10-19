@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "bootstrap/scss/bootstrap.scss";
-import Container from "react-bootstrap/Container";
+import { Container } from "reactstrap";
 //import Row from "react-bootstrap/Row";
 import ContentBlock from "../../utilities/ContentBlock";
 

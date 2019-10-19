@@ -1,6 +1,9 @@
 <?php
 
 // Helper utilities
+require_once('inc/acf.php');
+
+// Helper utilities
 require_once('inc/utilities.php');
 
 // Enable CORS from client

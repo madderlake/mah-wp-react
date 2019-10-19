@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import Section from "../../layout/Flex/Section";
-import Tabset from "../../layout/Flex/Tabset";
-
+import Section from "../../layout/Section/Section";
+import Tabset from "../../layout/Tabset/Tabset";
+import Cardset from "../../layout/Cards/Cards";
+import Columns from "../../layout/Columns/Columns";
+import ContentBlock from "../../utilities/ContentBlock";
+//import Row from 'reactstrap';
 import "./index.css";
-//import ContentBlock from '../../utilities/ContentBlock';
 
 class FlexContent extends Component {
   render() {
@@ -16,20 +18,21 @@ class FlexContent extends Component {
 
       const getLayout = layouts.map((section, index) => {
         let layout = section.acf_fc_layout;
-        //let pageTitleEl = section.acf.page_title_group;
 
         let props = {
+          key: index,
           inGrid: section.in_grid,
           className: section.section_class,
           title: section.section_title,
           titleClasses: section.section_title_class,
           content: section.section_content,
-          bgImg: section.section_bg_img,
-          key: index
+          bgImg: section.section_bg_img
         };
 
         let tabsetProps = {
           key: index,
+          title: section.section_title,
+          titleClasses: section.section_title_class,
           tabsetClass: section.tabset_class,
           id: section.tabset_name,
           tab: section.tab,
@@ -37,14 +40,46 @@ class FlexContent extends Component {
           inGrid: section.in_grid
         };
 
+        let cardProps = {
+          key: index,
+          title: section.section_title,
+          class: section.title_class,
+          image: section.image,
+          card: section.card,
+          content: section.card_content,
+          button: section.button,
+          inGrid: section.section_type,
+          columns: section.num_col
+        };
+
+        let colProps = {
+          key: index,
+          inGrid: section.in_grid,
+          num_col: section.num_columns,
+          title: section.section_title,
+          titleClasses: section.title_classes,
+          section_class: section.section_classes,
+          colGroup: section.col_container
+        };
+
         switch (layout) {
           case "section":
-            return <Section {...props} />;
+            console.log(props.content);
+            return (
+              <Section {...props}>
+                <ContentBlock content={props.content} />
+              </Section>
+            );
           //break;
           case "tab_set":
-            //console.log(tabsetProps)
+            console.log(tabsetProps);
             return <Tabset {...tabsetProps} />;
+          //return <Tabs {...tabsetProps} />;
           //break;
+          case "columns":
+            return <Columns {...colProps} />;
+          case "card_layout":
+            return <Cardset {...cardProps} />;
           default:
             return <Section {...props} />;
         }

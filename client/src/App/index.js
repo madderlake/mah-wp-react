@@ -7,7 +7,7 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import LoadTemplate from "../components/templates/LoadTemplate";
 import api from "../api";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/scss/styles.scss";
 
 const mapStateToProps = state => ({
   pageList: state.api.lists.pages
@@ -16,20 +16,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loadPages: list => dispatch({ type: "LOAD_PAGES_LIST", payload: list })
 });
-
-// const styles = (muiTheme) => ({
-// 	'@global': {
-// 		'p,li, a, span': {
-// 			fontFamily: muiTheme.typography.fontFamily,
-// 			fontSize: muiTheme.typography.body1.fontSize
-// 		}	,
-// 		container: {
-// 			display: 'grid',
-// 			gridTemplateColumns: 'repeat(12, 1fr)',
-// 			padding: `${muiTheme.spacing.unit * 3}px`,
-// 		}
-// 	}
-// })
 
 // console.log(muiTheme);
 class App extends Component {

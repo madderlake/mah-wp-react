@@ -1,0 +1,13 @@
+body {
+  font-size: $base-font-size;
+}
+
+h1 {
+  color: $primary-color;
+}
+//Bootstrap overrides
+
+h4,
+.h4 {
+  font-size: 1.25rem;
+}
