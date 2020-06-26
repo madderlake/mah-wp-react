@@ -8,7 +8,7 @@ function react_wp_rest_get_menu($data) {
 		foreach ($menu_items as $item) {
 
 			if ($item->object === 'page') {
-				$post = get_post($item->object_id); 
+				$post = get_post($item->object_id);
 				$slug = $post->post_name;
 
 				$item->url = '/' . $slug;

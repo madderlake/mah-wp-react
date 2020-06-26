@@ -1,7 +1,7 @@
 <?php
 
 ///////////////////////////////////
-// Register menus
+// Register menus, Add Support for and Enqueue Editor Styles
 ///////////////////////////////////
 
 add_action( 'after_setup_theme', 'react_wp_rest_setup' );
@@ -9,7 +9,13 @@ function react_wp_rest_setup() {
 	register_nav_menus(
 		array( 'main-menu' => __( 'Main Menu', 'react_wp_rest' ) )
 	);
+	//add_theme_support( 'editor-styles' );
+	add_theme_support( 'wp-block-styles' );
+  
+	// Enqueue editor styles.
+	add_editor_style( 'assets/css/style-editor.css' );
 }
+
 
 ///////////////////////////////////
 // Enable upload of VCF, SVG
@@ -31,5 +37,29 @@ function biologos_update_rest_url( $url, $path, $blog_id, $scheme ){
 
 	return $newUrl;
 }
+add_action(
+	'rest_api_init',
+	function () {
 
+		if ( ! function_exists( 'use_block_editor_for_post_type' ) ) {
+			require ABSPATH . 'wp-admin/includes/post.php';
+		}
+
+		// Surface all Gutenberg blocks in the WordPress REST API
+		$post_types = get_post_types_by_support( [ 'editor' ] );
+		foreach ( $post_types as $post_type ) {
+			if ( use_block_editor_for_post_type( $post_type ) ) {
+				register_rest_field(
+					$post_type,
+					'blocks',
+					[
+						'get_callback' => function ( array $post ) {
+							return parse_blocks( $post['content']['raw'] );
+						},
+					]
+				);
+			}
+		}
+	}
+);
 ?>

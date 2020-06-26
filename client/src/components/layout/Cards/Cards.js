@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-//import classnames from "classnames";
-import ContentBlock from "../../utilities/ContentBlock";
+import classnames from "classnames";
+//import ContentBlock from "../../utilities/ContentBlock";
 import "./cards.scss";
 import {
   Card,
   CardImg,
   CardBody,
   CardTitle,
+  CardFooter,
+  CardGroup,
   Button,
-  Row,
-  Col
+  // Row,
+  Col,
 } from "reactstrap";
 
 class Cardset extends Component {
@@ -20,20 +22,28 @@ class Cardset extends Component {
     const cardWPhone = 12 / this.props.columns.phone;
     const getCards = cardList.map((card, index) => {
       return (
-        <Col key={index} sm={cardWPhone} md={cardWTablet} lg={cardWDesktop}>
-          <Card>
+        <Col
+          key={index}
+          sm={cardWPhone}
+          md={cardWTablet}
+          lg={cardWDesktop}
+          className={classnames("card-col")}
+        >
+          <Card
+            className={classnames(this.props.className, `h-100`, `shadow-sm`)}
+          >
             <CardImg src={card.image.url} />
             <CardBody>
-              <CardTitle />
-              <h4>{card.card_title}</h4>
-              <CardTitle />
-              <ContentBlock content={card.card_content} />
+              <CardTitle tag={`h4`}>{card.card_title} </CardTitle>
+              <p className="card-text"> {card.card_content} </p>
+            </CardBody>
+            <CardFooter>
               <Button
                 onClick={() => (window.location.href = card.button.button_link)}
               >
                 {card.button.button_text}
               </Button>
-            </CardBody>
+            </CardFooter>
           </Card>
         </Col>
       );
@@ -45,15 +55,16 @@ class Cardset extends Component {
           this.props.inGrid ? "container" : "container-fluid"
         }`}
       >
-        <Row>
-          <Title title={this.props.title} titleClass={this.props.class} />
-          {getCards}
-        </Row>
+        {/* <Row> */}
+        <Title title={this.props.title} titleClass={this.props.class} />
+        {/* <div className="card-deck">{getCards}</div> */}
+        <CardGroup>{getCards}</CardGroup>
+        {/* </Row> */}
       </section>
     );
   }
 }
-const Title = props =>
+const Title = (props) =>
   props.title ? <h2 className={props.titleClass}>{props.title}</h2> : null;
 
 export default Cardset;

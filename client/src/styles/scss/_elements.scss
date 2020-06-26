@@ -1,13 +1,48 @@
 body {
-  font-size: $base-font-size;
+  font-size: var(--base-font-size);
 }
-
+a {
+  color: var(--secondary-color);
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+p,
+span,
+li {
+  color: var(--darker-gray);
+}
 h1 {
-  color: $primary-color;
+  color: var(--primary-color);
 }
-//Bootstrap overrides
+h2,
+.h2 {
+  color: var(--secondary-color);
+}
 
 h4,
 .h4 {
   font-size: 1.25rem;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1em;
+}
+section {
+  border-top: 1px solid #dddddd;
+  padding: 2rem 0;
+}
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }

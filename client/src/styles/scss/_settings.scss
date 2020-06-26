@@ -1,6 +1,21 @@
-//Fonts
-$base-font-size: 100%;
-
-//Colors
-
+//This until color-mod is cool with W3C
 $primary-color: #ed1249;
+$primary-light: lighten($primary-color, 42.5%);
+$secondary-color: #0062ca;
+$secondary-light: lighten($secondary-color, 50%);
+:root {
+  //Fonts
+  --base-font-size: 100%;
+  //Colors
+  --primary-color: #{$primary-color};
+  --primary-light: #{$primary-light};
+  //--secondary-color: #066aad;
+  //--secondary-color: #4106a8;
+  --secondary-color: #{$secondary-color};
+  --secondary-light: #{$secondary-light};
+  // --secondary-color: #17a2b8;
+  --basic-gray: #626364;
+  --darker-gray: #525252;
+  --lighter-gray: #929394;
+  --button-learn-bg: var(--secondary-color);
+}

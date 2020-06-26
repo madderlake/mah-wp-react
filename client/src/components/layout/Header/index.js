@@ -7,35 +7,36 @@ import {
   Nav,
   NavItem,
   Container,
-  Collapse
+  Collapse,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import api from "../../../api";
 import "./index.scss";
 
-const mapStateToProps = state => ({
-  mainMenu: state.api.menus.main
+const mapStateToProps = (state) => ({
+  mainMenu: state.api.menus.main,
 });
 
-const mapDispatchToProps = dispatch => ({
-  loadMenu: menu => dispatch({ type: "LOAD_MENU", payload: menu })
+const mapDispatchToProps = (dispatch) => ({
+  loadMenu: (menu) => dispatch({ type: "LOAD_MENU", payload: menu }),
 });
 
 class Header extends Component {
   constructor(props) {
     super(props);
+
     this.props.loadMenu(api.Menus.bySlug("main"));
     this.buildMenu = this.buildMenu.bind(this);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
 
@@ -43,7 +44,6 @@ class Header extends Component {
     if (this.props.mainMenu) {
       return this.props.mainMenu.map((item, i) => {
         const pageURI = this.props.location.pathname;
-        //console.log(pageURI);
 
         return (
           <NavItem key={item.ID}>

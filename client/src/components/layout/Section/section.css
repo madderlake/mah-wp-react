@@ -3,3 +3,9 @@ section {
   section .section-title {
     padding: 1rem 0;
     flex-basis: 100%; }
+  section.bg-img {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    min-height: 40vh;
+    background-size: cover;
+    background-position: center center; }

@@ -5,12 +5,13 @@ import "./section.scss";
 
 class Section extends Component {
   render() {
+    //console.log(this.props);
     return (
       <section
         className={this.props.bgImg ? `bg-img` : null}
         style={
           this.props.bgImg
-            ? { backgroundImage: `url(${this.props.bgImg})` }
+            ? { backgroundImage: `url(${this.props.bgImg.url})` }
             : null
         }
       >
@@ -25,14 +26,16 @@ class Section extends Component {
             title={this.props.title}
             titleClass={this.props.titleClasses}
           />
-          <ContentBlock content={this.props.content} />
+          {this.props.content ? (
+            <ContentBlock content={this.props.content.section_content} />
+          ) : null}
         </Container>
       </section>
     );
   }
 }
 
-const Title = props =>
+const Title = (props) =>
   props.title ? (
     <h2 className={`section-title ${props.titleClass}`}>{props.title}</h2>
   ) : null;

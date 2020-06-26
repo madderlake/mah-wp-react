@@ -3,7 +3,6 @@ import Section from "../../layout/Section/Section";
 import Tabset from "../../layout/Tabset/Tabset";
 import Cardset from "../../layout/Cards/Cards";
 import Columns from "../../layout/Columns/Columns";
-import ContentBlock from "../../utilities/ContentBlock";
 //import Row from 'reactstrap';
 import "./index.css";
 
@@ -11,77 +10,62 @@ class FlexContent extends Component {
   render() {
     if (this.props.data) {
       let acf = this.props.data.acf;
-      let layouts = acf.content;
+      let layouts = acf.flex_content;
       let pageTitle = acf.page_title_group.page_title;
       let pageTitleClass = acf.page_title_group.page_title_class;
-      //console.log(layouts);
 
-      const getLayout = layouts.map((section, index) => {
-        let layout = section.acf_fc_layout;
+      const getLayouts = layouts.map((layout, index) => {
+        let fc_layout = layout.acf_fc_layout;
 
-        let props = {
+        let sectionProps = {
           key: index,
-          inGrid: section.in_grid,
-          className: section.section_class,
-          title: section.section_title,
-          titleClasses: section.section_title_class,
-          content: section.section_content,
-          bgImg: section.section_bg_img
+          inGrid: layout.in_grid,
+          className: layout.section_class,
+          title: layout.section_title,
+          titleClasses: layout.section_title_class,
+          content: layout.content,
+          bgImg: layout.bg_img,
         };
-
+        //console.log(sectionProps);
         let tabsetProps = {
           key: index,
-          title: section.section_title,
-          titleClasses: section.section_title_class,
-          tabsetClass: section.tabset_class,
-          id: section.tabset_name,
-          tab: section.tab,
-          content: section.tab_content,
-          inGrid: section.in_grid
+          title: layout.section_title,
+          titleClasses: layout.section_title_class,
+          tabsetClass: layout.tabset_class,
+          id: layout.tabset_name,
+          tab: layout.tab,
+          inGrid: layout.in_grid,
         };
 
         let cardProps = {
           key: index,
-          title: section.section_title,
-          class: section.title_class,
-          image: section.image,
-          card: section.card,
-          content: section.card_content,
-          button: section.button,
-          inGrid: section.section_type,
-          columns: section.num_col
+          title: layout.section_title,
+          class: layout.title_class,
+          card: layout.card,
+          button: layout.button,
+          inGrid: layout.in_grid,
+          columns: layout.num_col,
         };
 
         let colProps = {
           key: index,
-          inGrid: section.in_grid,
-          num_col: section.num_columns,
-          title: section.section_title,
-          titleClasses: section.title_classes,
-          section_class: section.section_classes,
-          colGroup: section.col_container
+          inGrid: layout.in_grid,
+          num_col: layout.num_columns,
+          title: layout.section_title,
+          titleClasses: layout.title_classes,
+          section_class: layout.section_classes,
+          colGroup: layout.col_container,
         };
 
-        switch (layout) {
-          case "section":
-            console.log(props.content);
-            return (
-              <Section {...props}>
-                <ContentBlock content={props.content} />
-              </Section>
-            );
-          //break;
+        switch (fc_layout) {
           case "tab_set":
-            console.log(tabsetProps);
             return <Tabset {...tabsetProps} />;
-          //return <Tabs {...tabsetProps} />;
-          //break;
           case "columns":
             return <Columns {...colProps} />;
-          case "card_layout":
+          case "cards":
             return <Cardset {...cardProps} />;
           default:
-            return <Section {...props} />;
+            return <Section {...sectionProps} />;
         }
       });
 
@@ -89,8 +73,7 @@ class FlexContent extends Component {
         <div className={acf.page_class}>
           <article className={`${this.props.slug} flex-template`}>
             <h1 className={`container ${pageTitleClass}`}>{pageTitle}</h1>
-
-            {getLayout}
+            {getLayouts}
           </article>
         </div>
       );

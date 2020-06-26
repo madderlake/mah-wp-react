@@ -2,7 +2,11 @@
   .nav-link {
     cursor: pointer;
     &.active {
-      color: rgb(255, 0, 242);
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    &:hover {
+      color: var(--secondary-color);
     }
   }
 }
@@ -32,7 +36,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 320px) {
   .tab-pane {
     display: block !important;
     opacity: 1;

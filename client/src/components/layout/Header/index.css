@@ -1,28 +1,12 @@
-.navbar .nav-link {
-  padding: 0; }
-  .navbar .nav-link.active {
-    color: #6aff00; }
-
-.bg-dark .nav-link {
-  color: white; }
-
-.navbar {
+.header-main {
   margin-bottom: 2.5rem; }
-
-section {
-  border-top: 1px solid #dddddd;
-  padding: 2rem 0; }
-
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 1em; }
+  .header-main .navbar {
+    flex-basis: 40%; }
+    .header-main .navbar .nav-item {
+      flex-basis: 20%; }
+    .header-main .navbar .nav-link.active {
+      color: var(--primary-color); }
+    .header-main .navbar .container {
+      justify-content: flex-end; }
+    .header-main .navbar.bg-dark .nav-link {
+      color: white; }

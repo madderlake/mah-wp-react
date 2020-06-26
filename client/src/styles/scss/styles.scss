@@ -1,5 +1,7 @@
 @import-normalize;
-@import "~bootstrap/dist/css/bootstrap.min.css";
+//@import "./editor-styles.scss";
+//@import "~bootstrap/scss/bootstrap.scss";
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./_settings.scss";
 @import "./_elements.scss";
 @import "./_utilities.scss";

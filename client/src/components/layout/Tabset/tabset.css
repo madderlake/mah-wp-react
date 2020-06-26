@@ -1,7 +1,10 @@
 .nav-tabs .nav-link {
   cursor: pointer; }
   .nav-tabs .nav-link.active {
-    color: #ff00f2; }
+    color: var(--primary-color);
+    font-weight: 600; }
+  .nav-tabs .nav-link:hover {
+    color: var(--secondary-color); }
 
 .nav-tabs {
   display: none; }
@@ -19,7 +22,7 @@
   .card .collapse {
     display: block; } }
 
-@media (max-width: 767px) {
+@media (min-width: 320px) {
   .tab-pane {
     display: block !important;
     opacity: 1; }
