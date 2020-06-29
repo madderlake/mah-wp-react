@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-//import ContentBlock from "../../utilities/ContentBlock";
+import ContentBlock from "../../utilities/ContentBlock";
 import "./cards.scss";
 import {
+  Container,
   Card,
   CardImg,
   CardBody,
@@ -16,7 +17,10 @@ import {
 
 class Cardset extends Component {
   render() {
+    const section = this.props.section;
+    const content = section.content;
     const cardList = this.props.card;
+    console.log(content);
     const cardWDesktop = 12 / this.props.columns.desktop;
     const cardWTablet = 12 / this.props.columns.tablet;
     const cardWPhone = 12 / this.props.columns.phone;
@@ -50,16 +54,32 @@ class Cardset extends Component {
     });
 
     return (
-      <section
-        className={`card-set ${
-          this.props.inGrid ? "container" : "container-fluid"
-        }`}
-      >
-        {/* <Row> */}
-        <Title title={this.props.title} titleClass={this.props.class} />
-        {/* <div className="card-deck">{getCards}</div> */}
-        <CardGroup>{getCards}</CardGroup>
-        {/* </Row> */}
+      // <section
+      //   className={`card-set ${
+      //     this.props.inGrid ? "container" : "container-fluid"
+      //   }`}
+      // >
+      //   {/* <Row> */}
+      //   <Title title={this.props.title} titleClass={this.props.class} />
+      //   {/* <div className="card-deck">{getCards}</div> */}
+      //   <CardGroup>{getCards}</CardGroup>
+      //   {/* </Row> */}
+      // </section>
+      <section className={`card-set ${section.section_class}`}>
+        <Container
+          fluid={!content.containerized}
+          className={content.content_class}
+        >
+          {section.section_title ? (
+            <h2 className={section.section_class}>{section.section_title}</h2>
+          ) : (
+            ""
+          )}
+          {section.content ? (
+            <ContentBlock content={content.section_content} />
+          ) : null}
+          <CardGroup>{getCards}</CardGroup>
+        </Container>
       </section>
     );
   }

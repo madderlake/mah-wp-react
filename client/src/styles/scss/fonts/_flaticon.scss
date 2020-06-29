@@ -1,0 +1,72 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url(#{$font-path}/flaticon.eot);
+	src: url(#{$font-path}/flaticon.eot#iefix) format("embedded-opentype"),
+	url(#{$font-path}/flaticon.woff) format("woff"),
+	url(#{$font-path}/flaticon.ttf) format("truetype"),
+	url(#{$font-path}/flaticon.svg) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+
+font-family: Flaticon;
+font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-actualize:before {
+	content: "\e000";
+}
+.flaticon-blogger:before {
+	content: "\e001";
+}
+.flaticon-compass44:before {
+	content: "\e002";
+}
+.flaticon-cross97:before {
+	content: "\e003";
+}
+.flaticon-drawing19:before {
+	content: "\e004";
+}
+.flaticon-gears:before {
+	content: "\e005";
+}
+.flaticon-gps37:before {
+	content: "\e006";
+}
+.flaticon-html2:before {
+	content: "\e007";
+}
+.flaticon-marketing7:before {
+	content: "\e008";
+}
+.flaticon-next15:before {
+	content: "\e009";
+}
+.flaticon-movie7:before {
+	content: "\e00a";
+}
+.flaticon-previous11:before {
+	content: "\e00b";
+}
+.flaticon-printing3:before {
+	content: "\e00c";
+}
+.flaticon-slr2:before {
+	content: "\e00d";
+}
+.flaticon-technology19:before {
+	content: "\e00e";
+}
+.flaticon-web2:before {
+	content: "\e00f";
+}
+.flaticon-website8:before {
+	content: "\e010";
+}
+.flaticon-windows10:before {
+	content: "\e011";
+}

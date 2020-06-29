@@ -7,9 +7,9 @@ const containers = document.querySelectorAll(
 const colArr = Array.from(containers);
 //console.log(colGroup.length);
 
-colArr.forEach(layout => {
+colArr.forEach((layout) => {
   const numSelect = layout.querySelector(".num_col .acf-input select");
-  numSelect.onchange = function() {
+  numSelect.onchange = function () {
     const count = numSelect.value;
     const width = 100 / count;
     const def = 12 / parseInt(count);

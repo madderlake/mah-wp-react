@@ -1,69 +1,69 @@
 import React, { Component } from "react";
-//import classnames from "classnames";
+import classNames from "classnames";
+import { Row, Col, Container } from "reactstrap";
 import ContentBlock from "../../utilities/ContentBlock";
 import "./columns.scss";
-import { Row, Col } from "reactstrap";
 
 class Columns extends Component {
   render() {
-    const colGroup = this.props.colGroup;
-    const getCols = colGroup.map((col, index) => {
+    const section = this.props.section;
+    const content = section.content;
+
+    const colGroup = this.props.columns;
+    //const containerized = this.props.containerized;
+    //console.log(containerized);
+    //const section = this.props.section;
+    const getCols = Object.entries(colGroup).map((item, index) => {
+      const col = item[1][0];
+      console.log(col);
       const desktopWidth = col.width.desktop;
       const tabletWidth = col.width.tablet;
       const phoneWidth = col.width.phone;
-      const colTitle = col.column_title;
-      const colTitleClass = colTitle.title_class;
-      const colTitleText = colTitle.title;
-
-      const ColumnTitle = colTitleSize => {
-        colTitleSize = colTitle.title_size;
-        switch (colTitleSize) {
-          case "h2":
-            return (
-              <h2 className={`col-title ${colTitleClass}`}>{colTitleText}</h2>
-            );
-          case "h3":
-            return (
-              <h3 className={`col-title ${colTitleClass}`}>{colTitleText}</h3>
-            );
-          case "h5":
-            return (
-              <h5 className={`col-title ${colTitleClass}`}>{colTitleText}</h5>
-            );
-          case "h6":
-            return (
-              <h6 className={`col-title ${colTitleClass}`}>{colTitleText}</h6>
-            );
-          default:
-            return (
-              <h4 className={`col-title ${colTitleClass}`}>{colTitleText}</h4>
-            );
-        }
-
-        //return <ColumnTitle />;
-      };
+      const colClass = col.class;
 
       return (
-        <Col key={index} sm={phoneWidth} md={tabletWidth} lg={desktopWidth}>
-          <ColumnTitle>{colTitleText}</ColumnTitle>
-          <ContentBlock content={col.col_content} />
+        <Col
+          key={index}
+          sm={phoneWidth}
+          md={tabletWidth}
+          lg={desktopWidth}
+          className={classNames(this.props.className, colClass)}
+        >
+          {/* <ColumnTitle>{colTitleText}</ColumnTitle> */}
+
+          <ContentBlock content={col.content} />
         </Col>
       );
     });
 
     return (
-      <section
-        className={`columns ${
-          this.props.inGrid ? "container" : "container-fluid"
-        }`}
-      >
-        <Title title={this.props.title} titleClass={this.props.titleClasses} />
-        <Row>{getCols}</Row>
+      // <section className={}>
+      //   <Container fluid={!containerized}>
+      //     <Title title={section.title} titleClass={section.title_class} />
+      //     {section.content ? <ContentBlock content={section.content} /> : null}
+      //     <Row>{getCols}</Row>
+      //   </Container>
+      // </section>
+      <section className={`column-wrap ${section.section_class}`}>
+        <Container
+          fluid={!content.containerized}
+          className={content.content_class}
+        >
+          {section.section_title ? (
+            <h2 className={section.section_class}>{section.section_title}</h2>
+          ) : (
+            ""
+          )}
+          {section.content ? (
+            <ContentBlock content={content.section_content} />
+          ) : null}
+          <Row>{getCols}</Row>
+        </Container>
       </section>
     );
   }
 }
-const Title = props =>
+const Title = (props) =>
   props.title ? (
     <h2 className={`section-title ${props.titleClass}`}>{props.title}</h2>
   ) : null;

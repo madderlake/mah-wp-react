@@ -1,0 +1,1077 @@
+$font-path: "/static/fonts";
+@font-face {
+  font-family: "Novecento";
+  src: url(#{$font-path}/novecentowide-light.eot);
+  src: url(#{$font-path}/novecentowide-light.eot#iefix)
+      format("embedded-opentype"),
+    url(#{$font-path}/novecentowide-light.woff) format("woff"),
+    url(#{$font-path}/novecentowide-light.ttf) format("truetype"),
+    url(#{$font-path}/novecentowide-light.svg) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="novo-"]:before,
+[class*=" novo-"]:before,
+[class^="novo-"]:after,
+[class*=" novo-"]:after {
+  font-family: Novecento;
+  //font-size: 20px;
+  font-style: normal;
+  //margin-left: 20px;
+}
+.novo-A:before {
+  content: "\41";
+}
+.novo-AE:before {
+  content: "\c6";
+}
+.novo-Aacute:before {
+  content: "\c1";
+}
+.novo-Abreve:before {
+  content: "\102";
+}
+.novo-Acircumflex:before {
+  content: "\c2";
+}
+.novo-Adieresis:before {
+  content: "\c4";
+}
+.novo-Agrave:before {
+  content: "\c0";
+}
+.novo-Amacron:before {
+  content: "\100";
+}
+.novo-Aogonek:before {
+  content: "\104";
+}
+.novo-Aring:before {
+  content: "\c5";
+}
+.novo-Atilde:before {
+  content: "\c3";
+}
+.novo-B:before {
+  content: "\42";
+}
+.novo-C:before {
+  content: "\43";
+}
+.novo-Cacute:before {
+  content: "\106";
+}
+.novo-Ccaron:before {
+  content: "\10c";
+}
+.novo-Ccedilla:before {
+  content: "\c7";
+}
+.novo-Cdotaccent:before {
+  content: "\10a";
+}
+.novo-D:before {
+  content: "\44";
+}
+.novo-Dcaron:before {
+  content: "\10e";
+}
+.novo-Dcroat:before {
+  content: "\110";
+}
+.novo-E:before {
+  content: "\45";
+}
+.novo-Eacute:before {
+  content: "\c9";
+}
+.novo-Ecaron:before {
+  content: "\11a";
+}
+.novo-Ecircumflex:before {
+  content: "\ca";
+}
+.novo-Edieresis:before {
+  content: "\cb";
+}
+.novo-Edotaccent:before {
+  content: "\116";
+}
+.novo-Egrave:before {
+  content: "\c8";
+}
+.novo-Emacron:before {
+  content: "\112";
+}
+.novo-Eng:before {
+  content: "\14a";
+}
+.novo-Eogonek:before {
+  content: "\118";
+}
+.novo-Eth:before {
+  content: "\d0";
+}
+.novo-F:before {
+  content: "\46";
+}
+.novo-G:before {
+  content: "\47";
+}
+.novo-Gbreve:before {
+  content: "\11e";
+}
+.novo-Gcircumflex:before {
+  content: "\11c";
+}
+.novo-Gcommaaccent:before {
+  content: "\122";
+}
+.novo-Gdotaccent:before {
+  content: "\120";
+}
+.novo-Germandbls:before {
+  content: "\1e9e";
+}
+.novo-H:before {
+  content: "\48";
+}
+.novo-Hbar:before {
+  content: "\126";
+}
+.novo-Hcircumflex:before {
+  content: "\124";
+}
+.novo-I:before {
+  content: "\49";
+}
+.novo-IJ:before {
+  content: "\132";
+}
+.novo-Iacute:before {
+  content: "\cd";
+}
+.novo-Icircumflex:before {
+  content: "\ce";
+}
+.novo-Idieresis:before {
+  content: "\cf";
+}
+.novo-Idotaccent:before {
+  content: "\130";
+}
+.novo-Igrave:before {
+  content: "\cc";
+}
+.novo-Imacron:before {
+  content: "\12a";
+}
+.novo-Iogonek:before {
+  content: "\12e";
+}
+.novo-J:before {
+  content: "\4a";
+}
+.novo-Jcircumflex:before {
+  content: "\134";
+}
+.novo-K:before {
+  content: "\4b";
+}
+.novo-Kcommaaccent:before {
+  content: "\136";
+}
+.novo-L:before {
+  content: "\4c";
+}
+.novo-Lacute:before {
+  content: "\139";
+}
+.novo-Lcaron:before {
+  content: "\13d";
+}
+.novo-Lcommaaccent:before {
+  content: "\13b";
+}
+.novo-Ldot:before {
+  content: "\13f";
+}
+.novo-Lslash:before {
+  content: "\141";
+}
+.novo-M:before {
+  content: "\4d";
+}
+.novo-N:before {
+  content: "\4e";
+}
+.novo-Nacute:before {
+  content: "\143";
+}
+.novo-Ncaron:before {
+  content: "\147";
+}
+.novo-Ncommaaccent:before {
+  content: "\145";
+}
+.novo-Ntilde:before {
+  content: "\d1";
+}
+.novo-O:before {
+  content: "\4f";
+}
+.novo-OE:before {
+  content: "\152";
+}
+.novo-Oacute:before {
+  content: "\d3";
+}
+.novo-Ocircumflex:before {
+  content: "\d4";
+}
+.novo-Odieresis:before {
+  content: "\d6";
+}
+.novo-Ograve:before {
+  content: "\d2";
+}
+.novo-Ohungarumlaut:before {
+  content: "\150";
+}
+.novo-Omacron:before {
+  content: "\14c";
+}
+.novo-Oslash:before {
+  content: "\d8";
+}
+.novo-Otilde:before {
+  content: "\d5";
+}
+.novo-P:before {
+  content: "\50";
+}
+.novo-Q:before {
+  content: "\51";
+}
+.novo-R:before {
+  content: "\52";
+}
+.novo-Racute:before {
+  content: "\154";
+}
+.novo-Rcaron:before {
+  content: "\158";
+}
+.novo-Rcommaaccent:before {
+  content: "\156";
+}
+.novo-S:before {
+  content: "\53";
+}
+.novo-Sacute:before {
+  content: "\15a";
+}
+.novo-Scaron:before {
+  content: "\160";
+}
+.novo-Scedilla:before {
+  content: "\15e";
+}
+.novo-Scircumflex:before {
+  content: "\15c";
+}
+.novo-Scommaaccent:before {
+  content: "\218";
+}
+.novo-T:before {
+  content: "\54";
+}
+.novo-Tbar:before {
+  content: "\166";
+}
+.novo-Tcaron:before {
+  content: "\164";
+}
+.novo-Tcedilla:before {
+  content: "\162";
+}
+.novo-uni021A:before {
+  content: "\21a";
+}
+.novo-Thorn:before {
+  content: "\de";
+}
+.novo-U:before {
+  content: "\55";
+}
+.novo-Uacute:before {
+  content: "\da";
+}
+.novo-Ubreve:before {
+  content: "\16c";
+}
+.novo-Ucircumflex:before {
+  content: "\db";
+}
+.novo-Udieresis:before {
+  content: "\dc";
+}
+.novo-Ugrave:before {
+  content: "\d9";
+}
+.novo-Uhungarumlaut:before {
+  content: "\170";
+}
+.novo-Umacron:before {
+  content: "\16a";
+}
+.novo-Uogonek:before {
+  content: "\172";
+}
+.novo-Uring:before {
+  content: "\16e";
+}
+.novo-V:before {
+  content: "\56";
+}
+.novo-W:before {
+  content: "\57";
+}
+.novo-Wacute:before {
+  content: "\1e82";
+}
+.novo-Wcircumflex:before {
+  content: "\174";
+}
+.novo-Wdieresis:before {
+  content: "\1e84";
+}
+.novo-Wgrave:before {
+  content: "\1e80";
+}
+.novo-X:before {
+  content: "\58";
+}
+.novo-Y:before {
+  content: "\59";
+}
+.novo-Yacute:before {
+  content: "\dd";
+}
+.novo-Ycircumflex:before {
+  content: "\176";
+}
+.novo-Ydieresis:before {
+  content: "\178";
+}
+.novo-Ygrave:before {
+  content: "\1ef2";
+}
+.novo-Z:before {
+  content: "\5a";
+}
+.novo-Zacute:before {
+  content: "\179";
+}
+.novo-Zcaron:before {
+  content: "\17d";
+}
+.novo-Zdotaccent:before {
+  content: "\17b";
+}
+.novo-a:before {
+  content: "\61";
+}
+.novo-aacute:before {
+  content: "\e1";
+}
+.novo-abreve:before {
+  content: "\103";
+}
+.novo-acircumflex:before {
+  content: "\e2";
+}
+.novo-adieresis:before {
+  content: "\e4";
+}
+.novo-ae:before {
+  content: "\e6";
+}
+.novo-agrave:before {
+  content: "\e0";
+}
+.novo-amacron:before {
+  content: "\101";
+}
+.novo-aogonek:before {
+  content: "\105";
+}
+.novo-aring:before {
+  content: "\e5";
+}
+.novo-atilde:before {
+  content: "\e3";
+}
+.novo-b:before {
+  content: "\62";
+}
+.novo-c:before {
+  content: "\63";
+}
+.novo-cacute:before {
+  content: "\107";
+}
+.novo-ccaron:before {
+  content: "\10d";
+}
+.novo-ccedilla:before {
+  content: "\e7";
+}
+.novo-cdotaccent:before {
+  content: "\10b";
+}
+.novo-d:before {
+  content: "\64";
+}
+.novo-dcaron:before {
+  content: "\10f";
+}
+.novo-dcroat:before {
+  content: "\111";
+}
+.novo-dotlessi:before {
+  content: "\131";
+}
+.novo-dotlessj:before {
+  content: "\237";
+}
+.novo-e:before {
+  content: "\65";
+}
+.novo-eacute:before {
+  content: "\e9";
+}
+.novo-ecaron:before {
+  content: "\11b";
+}
+.novo-ecircumflex:before {
+  content: "\ea";
+}
+.novo-edieresis:before {
+  content: "\eb";
+}
+.novo-edotaccent:before {
+  content: "\117";
+}
+.novo-egrave:before {
+  content: "\e8";
+}
+.novo-emacron:before {
+  content: "\113";
+}
+.novo-eng:before {
+  content: "\14b";
+}
+.novo-eogonek:before {
+  content: "\119";
+}
+.novo-eth:before {
+  content: "\f0";
+}
+.novo-f:before {
+  content: "\66";
+}
+.novo-g:before {
+  content: "\67";
+}
+.novo-gbreve:before {
+  content: "\11f";
+}
+.novo-gcircumflex:before {
+  content: "\11d";
+}
+.novo-gcommaaccent:before {
+  content: "\123";
+}
+.novo-gdotaccent:before {
+  content: "\121";
+}
+.novo-germandbls:before {
+  content: "\df";
+}
+.novo-h:before {
+  content: "\68";
+}
+.novo-hbar:before {
+  content: "\127";
+}
+.novo-hcircumflex:before {
+  content: "\125";
+}
+.novo-i:before {
+  content: "\69";
+}
+.novo-iacute:before {
+  content: "\ed";
+}
+.novo-icircumflex:before {
+  content: "\ee";
+}
+.novo-idieresis:before {
+  content: "\ef";
+}
+.novo-igrave:before {
+  content: "\ec";
+}
+.novo-ij:before {
+  content: "\133";
+}
+.novo-imacron:before {
+  content: "\12b";
+}
+.novo-iogonek:before {
+  content: "\12f";
+}
+.novo-j:before {
+  content: "\6a";
+}
+.novo-jcircumflex:before {
+  content: "\135";
+}
+.novo-k:before {
+  content: "\6b";
+}
+.novo-kcommaaccent:before {
+  content: "\137";
+}
+.novo-l:before {
+  content: "\6c";
+}
+.novo-lacute:before {
+  content: "\13a";
+}
+.novo-lcaron:before {
+  content: "\13e";
+}
+.novo-lcommaaccent:before {
+  content: "\13c";
+}
+.novo-ldot:before {
+  content: "\140";
+}
+.novo-lslash:before {
+  content: "\142";
+}
+.novo-m:before {
+  content: "\6d";
+}
+.novo-n:before {
+  content: "\6e";
+}
+.novo-nacute:before {
+  content: "\144";
+}
+.novo-ncaron:before {
+  content: "\148";
+}
+.novo-ncommaaccent:before {
+  content: "\146";
+}
+.novo-ntilde:before {
+  content: "\f1";
+}
+.novo-o:before {
+  content: "\6f";
+}
+.novo-oacute:before {
+  content: "\f3";
+}
+.novo-ocircumflex:before {
+  content: "\f4";
+}
+.novo-odieresis:before {
+  content: "\f6";
+}
+.novo-oe:before {
+  content: "\153";
+}
+.novo-ograve:before {
+  content: "\f2";
+}
+.novo-ohungarumlaut:before {
+  content: "\151";
+}
+.novo-omacron:before {
+  content: "\14d";
+}
+.novo-oslash:before {
+  content: "\f8";
+}
+.novo-otilde:before {
+  content: "\f5";
+}
+.novo-p:before {
+  content: "\70";
+}
+.novo-q:before {
+  content: "\71";
+}
+.novo-r:before {
+  content: "\72";
+}
+.novo-racute:before {
+  content: "\155";
+}
+.novo-rcaron:before {
+  content: "\159";
+}
+.novo-rcommaaccent:before {
+  content: "\157";
+}
+.novo-s:before {
+  content: "\73";
+}
+.novo-sacute:before {
+  content: "\15b";
+}
+.novo-scaron:before {
+  content: "\161";
+}
+.novo-scedilla:before {
+  content: "\15f";
+}
+.novo-scircumflex:before {
+  content: "\15d";
+}
+.novo-scommaaccent:before {
+  content: "\219";
+}
+.novo-t:before {
+  content: "\74";
+}
+.novo-tbar:before {
+  content: "\167";
+}
+.novo-tcaron:before {
+  content: "\165";
+}
+.novo-tcedilla:before {
+  content: "\163";
+}
+.novo-uni021B:before {
+  content: "\21b";
+}
+.novo-thorn:before {
+  content: "\fe";
+}
+.novo-u:before {
+  content: "\75";
+}
+.novo-uacute:before {
+  content: "\fa";
+}
+.novo-ubreve:before {
+  content: "\16d";
+}
+.novo-ucircumflex:before {
+  content: "\fb";
+}
+.novo-udieresis:before {
+  content: "\fc";
+}
+.novo-ugrave:before {
+  content: "\f9";
+}
+.novo-uhungarumlaut:before {
+  content: "\171";
+}
+.novo-umacron:before {
+  content: "\16b";
+}
+.novo-uogonek:before {
+  content: "\173";
+}
+.novo-uring:before {
+  content: "\16f";
+}
+.novo-v:before {
+  content: "\76";
+}
+.novo-w:before {
+  content: "\77";
+}
+.novo-wacute:before {
+  content: "\1e83";
+}
+.novo-wcircumflex:before {
+  content: "\175";
+}
+.novo-wdieresis:before {
+  content: "\1e85";
+}
+.novo-wgrave:before {
+  content: "\1e81";
+}
+.novo-x:before {
+  content: "\78";
+}
+.novo-y:before {
+  content: "\79";
+}
+.novo-yacute:before {
+  content: "\fd";
+}
+.novo-ycircumflex:before {
+  content: "\177";
+}
+.novo-ydieresis:before {
+  content: "\ff";
+}
+.novo-ygrave:before {
+  content: "\1ef3";
+}
+.novo-z:before {
+  content: "\7a";
+}
+.novo-zacute:before {
+  content: "\17a";
+}
+.novo-zcaron:before {
+  content: "\17e";
+}
+.novo-zdotaccent:before {
+  content: "\17c";
+}
+.novo-ordfeminine:before {
+  content: "\aa";
+}
+.novo-ordmasculine:before {
+  content: "\ba";
+}
+.novo-zero:before {
+  content: "\30";
+}
+.novo-one:before {
+  content: "\31";
+}
+.novo-two:before {
+  content: "\32";
+}
+.novo-three:before {
+  content: "\33";
+}
+.novo-four:before {
+  content: "\34";
+}
+.novo-five:before {
+  content: "\35";
+}
+.novo-six:before {
+  content: "\36";
+}
+.novo-seven:before {
+  content: "\37";
+}
+.novo-eight:before {
+  content: "\38";
+}
+.novo-nine:before {
+  content: "\39";
+}
+.novo-onequarter:before {
+  content: "\bc";
+}
+.novo-onehalf:before {
+  content: "\bd";
+}
+.novo-threequarters:before {
+  content: "\be";
+}
+.novo-fraction:before {
+  content: "\2044";
+}
+.novo-oneeighth:before {
+  content: "\215b";
+}
+.novo-threeeighths:before {
+  content: "\215c";
+}
+.novo-fiveeighths:before {
+  content: "\215d";
+}
+.novo-seveneighths:before {
+  content: "\215e";
+}
+.novo-twosuperior:before {
+  content: "\b2";
+}
+.novo-threesuperior:before {
+  content: "\b3";
+}
+.novo-onesuperior:before {
+  content: "\b9";
+}
+.novo-asterisk:before {
+  content: "\2a";
+}
+.novo-backslash:before {
+  content: "\5c";
+}
+.novo-bullet:before {
+  content: "\2022";
+}
+.novo-colon:before {
+  content: "\3a";
+}
+.novo-comma:before {
+  content: "\2c";
+}
+.novo-ellipsis:before {
+  content: "\2026";
+}
+.novo-exclam:before {
+  content: "\21";
+}
+.novo-exclamdown:before {
+  content: "\a1";
+}
+.novo-numbersign:before {
+  content: "\23";
+}
+.novo-period:before {
+  content: "\2e";
+}
+.novo-periodcentered:before {
+  content: "\b7";
+}
+.novo-question:before {
+  content: "\3f";
+}
+.novo-questiondown:before {
+  content: "\bf";
+}
+.novo-quotedbl:before {
+  content: "\22";
+}
+.novo-quotesingle:before {
+  content: "\27";
+}
+.novo-semicolon:before {
+  content: "\3b";
+}
+.novo-slash:before {
+  content: "\2f";
+}
+.novo-underscore:before {
+  content: "\5f";
+}
+.novo-braceleft:before {
+  content: "\7b";
+}
+.novo-braceright:before {
+  content: "\7d";
+}
+.novo-bracketleft:before {
+  content: "\5b";
+}
+.novo-bracketright:before {
+  content: "\5d";
+}
+.novo-parenleft:before {
+  content: "\28";
+}
+.novo-parenright:before {
+  content: "\29";
+}
+.novo-emdash:before {
+  content: "\2014";
+}
+.novo-endash:before {
+  content: "\2013";
+}
+.novo-hyphen:before {
+  content: "\2d";
+}
+.novo-softhyphen:before {
+  content: "\ad";
+}
+.novo-guillemotleft:before {
+  content: "\ab";
+}
+.novo-guillemotright:before {
+  content: "\bb";
+}
+.novo-guilsinglleft:before {
+  content: "\2039";
+}
+.novo-guilsinglright:before {
+  content: "\203a";
+}
+.novo-quotedblbase:before {
+  content: "\201e";
+}
+.novo-quotedblleft:before {
+  content: "\201c";
+}
+.novo-quotedblright:before {
+  content: "\201d";
+}
+.novo-quoteleft:before {
+  content: "\2018";
+}
+.novo-quoteright:before {
+  content: "\2019";
+}
+.novo-quotesinglbase:before {
+  content: "\201a";
+}
+.novo-Euro:before {
+  content: "\20ac";
+}
+.novo-cent:before {
+  content: "\a2";
+}
+.novo-currency:before {
+  content: "\a4";
+}
+.novo-dollar:before {
+  content: "\24";
+}
+.novo-uni20B9:before {
+  content: "\20b9";
+}
+.novo-sterling:before {
+  content: "\a3";
+}
+.novo-yen:before {
+  content: "\a5";
+}
+.novo-asciitilde:before {
+  content: "\7e";
+}
+.novo-divide:before {
+  content: "\f7";
+}
+.novo-equal:before {
+  content: "\3d";
+}
+.novo-greater:before {
+  content: "\3e";
+}
+.novo-greaterequal:before {
+  content: "\2265";
+}
+.novo-less:before {
+  content: "\3c";
+}
+.novo-lessequal:before {
+  content: "\2264";
+}
+.novo-minus:before {
+  content: "\2212";
+}
+.novo-multiply:before {
+  content: "\d7";
+}
+.novo-notequal:before {
+  content: "\2260";
+}
+.novo-percent:before {
+  content: "\25";
+}
+.novo-perthousand:before {
+  content: "\2030";
+}
+.novo-plus:before {
+  content: "\2b";
+}
+.novo-plusminus:before {
+  content: "\b1";
+}
+.novo-ampersand:before {
+  content: "\26";
+}
+.novo-at:before {
+  content: "\40";
+}
+.novo-bar:before {
+  content: "\7c";
+}
+.novo-brokenbar:before {
+  content: "\a6";
+}
+.novo-copyright:before {
+  content: "\a9";
+}
+.novo-dagger:before {
+  content: "\2020";
+}
+.novo-daggerdbl:before {
+  content: "\2021";
+}
+.novo-degree:before {
+  content: "\b0";
+}
+.novo-lozenge:before {
+  content: "\25ca";
+}
+.novo-afii61352:before {
+  content: "\2116";
+}
+.novo-paragraph:before {
+  content: "\b6";
+}
+.novo-registered:before {
+  content: "\ae";
+}
+.novo-section:before {
+  content: "\a7";
+}
+.novo-trademark:before {
+  content: "\2122";
+}
+.novo-commaaccentcomb:before {
+  content: "\326";
+}
+.novo-asciicircum:before {
+  content: "\5e";
+}
+.novo-acute:before {
+  content: "\b4";
+}
+.novo-breve:before {
+  content: "\2d8";
+}
+.novo-caron:before {
+  content: "\2c7";
+}
+.novo-cedilla:before {
+  content: "\b8";
+}
+.novo-circumflex:before {
+  content: "\2c6";
+}
+.novo-dieresis:before {
+  content: "\a8";
+}
+.novo-dotaccent:before {
+  content: "\2d9";
+}
+.novo-grave:before {
+  content: "\60";
+}
+.novo-hungarumlaut:before {
+  content: "\2dd";
+}
+.novo-macron:before {
+  content: "\af";
+}
+.novo-ogonek:before {
+  content: "\2db";
+}
+.novo-ring:before {
+  content: "\2da";
+}
+.novo-tilde:before {
+  content: "\2dc";
+}

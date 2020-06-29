@@ -57,7 +57,7 @@ add_action('acf/input/admin_enqueue_scripts', 'custom_acf_enqueue_scripts');
  *
  */
 function be_register_blocks() {
-	
+
 	if( ! function_exists( 'acf_register_block_type' ) )
 		return;
 
@@ -73,3 +73,21 @@ function be_register_blocks() {
 
 }
 add_action('acf/init', 'be_register_blocks' );
+
+/**
+ * Custom JS for WP Admin
+ *
+ */
+
+ function mah_acf_enqueue_scripts() {
+
+  wp_enqueue_script( 'acf-custom-js', get_template_directory_uri() . '/assets/js/acf-custom.js', array(), '1.0.0', true );
+
+}
+
+function mah_acf_admin_head() {
+	wp_enqueue_style( 'acf-custom-css', get_template_directory_uri() . '/assets/css/acf-custom.css', array(), '1.0.0', '' );
+}
+
+add_action('acf/input/admin_head', 'mah_acf_admin_head');
+

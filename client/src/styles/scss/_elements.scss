@@ -1,5 +1,7 @@
 body {
-  font-size: var(--base-font-size);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  color: var(--basic-gray);
 }
 a {
   color: var(--secondary-color);
@@ -7,16 +9,13 @@ a {
     color: var(--primary-color);
   }
 }
-p,
-span,
-li {
-  color: var(--darker-gray);
-}
+
 h1 {
   color: var(--primary-color);
 }
 h2,
 .h2 {
+  font-size: var(--font-size-lg);
   color: var(--secondary-color);
 }
 
@@ -38,11 +37,22 @@ h5,
 h6 {
   margin-bottom: 1em;
 }
+
 section {
-  border-top: 1px solid #dddddd;
+  //border-top: 1px solid #dddddd;
   padding: 2rem 0;
+
+  &.hero {
+    padding-top: 0;
+  }
 }
 .btn-secondary {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
+}
+
+// Variants
+.special-heading {
+  font-family: var(--font-family-special);
+  font-size: calc(var(--font-size-xlg) * 1.15);
 }

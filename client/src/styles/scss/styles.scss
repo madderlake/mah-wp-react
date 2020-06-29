@@ -1,7 +1,8 @@
-@import-normalize;
+//@import-normalize;
 //@import "./editor-styles.scss";
-//@import "~bootstrap/scss/bootstrap.scss";
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
-@import "./_settings.scss";
+@import "./settings.scss";
+@import "./fonts/proxima-nova";
+@import "./fonts/novecento";
 @import "./_elements.scss";
 @import "./_utilities.scss";

@@ -1,34 +1,32 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import { Container } from "reactstrap";
 import ContentBlock from "../../utilities/ContentBlock";
 import "./section.scss";
 
 class Section extends Component {
   render() {
-    //console.log(this.props);
+    const section = this.props.section;
+    const bgImg = section.bg_img;
+    const content = section.content;
+    const bgImgClass = bgImg ? "bg-img" : "";
+
+    console.log(section);
+    console.log(content);
     return (
       <section
-        className={this.props.bgImg ? `bg-img` : null}
-        style={
-          this.props.bgImg
-            ? { backgroundImage: `url(${this.props.bgImg.url})` }
-            : null
-        }
+        className={classnames(this.props.section.class, bgImgClass)}
+        style={bgImg ? { backgroundImage: `url(${bgImg.url})` } : null}
       >
         <Container
-          className={
-            this.props.inGrid
-              ? `container ${this.props.className}`
-              : `container-fluid  ${this.props.className}`
-          }
+          fluid={!content.containerized}
+          className={content.section_content_class}
         >
           <Title
-            title={this.props.title}
-            titleClass={this.props.titleClasses}
+            title={this.props.section.title}
+            titleClass={this.props.section.titleClasses}
           />
-          {this.props.content ? (
-            <ContentBlock content={this.props.content.section_content} />
-          ) : null}
+          {content ? <ContentBlock content={content.section_content} /> : null}
         </Container>
       </section>
     );

@@ -33,6 +33,8 @@ class Tabset extends Component {
   }
 
   render() {
+    const section = this.props.section;
+    const content = section.content;
     const tabList = this.props.tab;
 
     const getTabs = tabList.map((tab, index) => {
@@ -83,8 +85,19 @@ class Tabset extends Component {
       //return null;
     });
     return (
-      <section>
-        <Container className={this.props.inGrid ? `` : `container-fluid `}>
+      <section className={section.section_class}>
+        <Container
+          fluid={!content.containerized}
+          className={content.content_class}
+        >
+          {section.section_title ? (
+            <h2 className={section.section_class}>{section.section_title}</h2>
+          ) : (
+            ""
+          )}
+          {section.content ? (
+            <ContentBlock content={content.section_content} />
+          ) : null}
           <Nav tabs>{getTabs}</Nav>
           <TabContent activeTab={this.state.activeTab}>
             {getTabPanes}
@@ -92,7 +105,6 @@ class Tabset extends Component {
         </Container>
       </section>
     );
-    // return null;
   }
 }
 

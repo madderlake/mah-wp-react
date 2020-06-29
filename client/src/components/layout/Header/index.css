@@ -1,12 +1,10 @@
-.header-main {
-  margin-bottom: 2.5rem; }
-  .header-main .navbar {
-    flex-basis: 40%; }
-    .header-main .navbar .nav-item {
-      flex-basis: 20%; }
-    .header-main .navbar .nav-link.active {
-      color: var(--primary-color); }
-    .header-main .navbar .container {
-      justify-content: flex-end; }
-    .header-main .navbar.bg-dark .nav-link {
-      color: white; }
+.header-main .navbar {
+  flex-basis: 40%; }
+  .header-main .navbar .nav-item {
+    flex-basis: 20%; }
+  .header-main .navbar .nav-link.active {
+    color: var(--primary-color); }
+  .header-main .navbar .container {
+    justify-content: flex-end; }
+  .header-main .navbar.bg-dark .nav-link {
+    color: white; }

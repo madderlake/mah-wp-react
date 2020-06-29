@@ -1,8 +1,11 @@
 section {
   margin: 1.5rem 0;
 
+  &:first-child {
+    margin-top: 0;
+  }
   .section-title {
-    padding: 1rem 0;
+    // padding: 1rem 0;
     flex-basis: 100%;
   }
   &.bg-img {
@@ -11,5 +14,10 @@ section {
     min-height: 40vh;
     background-size: cover;
     background-position: center center;
+  }
+
+  &.hero {
+    margin-top: 0;
+    min-height: 50vh;
   }
 }

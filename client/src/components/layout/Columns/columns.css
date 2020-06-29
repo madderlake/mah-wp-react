@@ -1,5 +1,2 @@
-.columns .section-title {
-  margin-bottom: 1.75em; }
-
-.columns h6 {
-  font-weight: 700; }
+.col-lg-3 {
+  font-size: calc(var(--font-size) * 0.9); }

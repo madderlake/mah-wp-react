@@ -7,7 +7,6 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import LoadTemplate from "../components/templates/LoadTemplate";
 import api from "../api";
-import fonts from "../static/fonts";
 import "../styles/scss/styles.scss";
 
 const mapStateToProps = (state) => ({

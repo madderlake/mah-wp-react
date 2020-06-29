@@ -19,42 +19,45 @@ class FlexContent extends Component {
 
         let sectionProps = {
           key: index,
-          inGrid: layout.in_grid,
-          className: layout.section_class,
-          title: layout.section_title,
-          titleClasses: layout.section_title_class,
+          section: layout.section_m,
+          // inGrid: layout.section_m.in_grid,
+          // class: layout.section_class,
+          // title: layout.section_title,
+          // titleClasses: layout.section_title_class,
           content: layout.content,
-          bgImg: layout.bg_img,
+          inGrid: layout.in_grid,
+          //bgImg: layout.bg_img,
         };
         //console.log(sectionProps);
         let tabsetProps = {
           key: index,
-          title: layout.section_title,
-          titleClasses: layout.section_title_class,
-          tabsetClass: layout.tabset_class,
-          id: layout.tabset_name,
+          section: layout.section_m,
+          // title: layout.section_title,
+          // titleClasses: layout.section_title_class,
+          // tabsetClass: layout.tabset_class,
+          // id: layout.tabset_name,
           tab: layout.tab,
           inGrid: layout.in_grid,
         };
 
         let cardProps = {
           key: index,
-          title: layout.section_title,
-          class: layout.title_class,
+          section: layout.section_m,
+          // title: layout.section_title,
+          // class: layout.title_class,
           card: layout.card,
-          button: layout.button,
-          inGrid: layout.in_grid,
+          // button: layout.button,
+          // inGrid: layout.in_grid,
           columns: layout.num_col,
         };
 
         let colProps = {
           key: index,
-          inGrid: layout.in_grid,
+          section: layout.section_m,
+          //inGrid: layout.in_grid,
           num_col: layout.num_columns,
-          title: layout.section_title,
-          titleClasses: layout.title_classes,
-          section_class: layout.section_classes,
-          colGroup: layout.col_container,
+          containerized: layout.containerized,
+          columns: layout.col_group,
         };
 
         switch (fc_layout) {
@@ -72,7 +75,11 @@ class FlexContent extends Component {
       return (
         <div className={acf.page_class}>
           <article className={`${this.props.slug} flex-template`}>
-            <h1 className={`container ${pageTitleClass}`}>{pageTitle}</h1>
+            {pageTitle ? (
+              <h1 className={`container ${pageTitleClass}`}>{pageTitle}</h1>
+            ) : (
+              ""
+            )}
             {getLayouts}
           </article>
         </div>

@@ -1,4 +1,4 @@
-//This until color-mod is cool with W3C
+/*This until color-mod is cool with W3C - these are colors that we're modifying using existing functions in Sass*/
 $primary-color: #ed1249;
 $primary-light: lighten($primary-color, 42.5%);
 $secondary-color: #0062ca;
@@ -6,6 +6,14 @@ $secondary-light: lighten($secondary-color, 50%);
 :root {
   //Fonts
   --base-font-size: 100%;
+  --font-size: calc(1rem + 0.25vw);
+  --font-size-xsm: calc(0.625rem + 0.25vw);
+  --font-size-sm: calc(0.75rem + 0.25vw);
+  --font-size-med: calc(1.5rem + + 0.25vw);
+  --font-size-lg: calc(1.75rem + 0.25vw);
+  --font-size-xlg: calc(2rem + 0.25vw);
+  --font-family: ProximaNova, "Helvetica Neue", sans-serif;
+  --font-family-special: "Novecento";
   //Colors
   --primary-color: #{$primary-color};
   --primary-light: #{$primary-light};
@@ -15,7 +23,7 @@ $secondary-light: lighten($secondary-color, 50%);
   --secondary-light: #{$secondary-light};
   // --secondary-color: #17a2b8;
   --basic-gray: #626364;
-  --darker-gray: #525252;
+  --dark-gray: #343a40;
   --lighter-gray: #929394;
   --button-learn-bg: var(--secondary-color);
 }
