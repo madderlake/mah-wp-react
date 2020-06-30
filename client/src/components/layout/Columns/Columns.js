@@ -37,13 +37,6 @@ class Columns extends Component {
     });
 
     return (
-      // <section className={}>
-      //   <Container fluid={!containerized}>
-      //     <Title title={section.title} titleClass={section.title_class} />
-      //     {section.content ? <ContentBlock content={section.content} /> : null}
-      //     <Row>{getCols}</Row>
-      //   </Container>
-      // </section>
       <section className={`column-wrap ${section.section_class}`}>
         <Container
           fluid={!content.containerized}
@@ -63,9 +56,5 @@ class Columns extends Component {
     );
   }
 }
-// const Title = (props) =>
-//   props.title ? (
-//     <h2 className={`section-title ${props.titleClass}`}>{props.title}</h2>
-//   ) : null;
 
 export default Columns;

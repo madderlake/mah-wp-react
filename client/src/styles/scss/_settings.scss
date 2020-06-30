@@ -10,11 +10,11 @@ $secondary-light: lighten($secondary-color, 50%);
   --font-size: calc(1rem + 0.25vw);
   --font-size-xsm: calc(0.625rem + 0.25vw);
   --font-size-sm: calc(0.75rem + 0.25vw);
-  --font-size-med: calc(1.5rem + + 0.25vw);
+  --font-size-med: calc(1.5rem + 0.25vw);
   --font-size-lg: calc(1.75rem + 0.25vw);
   --font-size-xlg: calc(2rem + 0.25vw);
-  --font-family: ProximaNova, "Helvetica Neue", sans-serif;
-  --font-family-special: "Novecento";
+  --font-family: ProximaNova, 'Helvetica Neue', sans-serif;
+  --font-family-special: 'Novecento';
   //Colors
   --primary-color: #{$primary-color};
   --primary-light: #{$primary-light};
