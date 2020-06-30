@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import classnames from "classnames";
-import ContentBlock from "../../utilities/ContentBlock";
-import "./cards.scss";
+import React, { Component } from 'react';
+import classnames from 'classnames';
+import ContentBlock from '../../utilities/ContentBlock';
+import './cards.scss';
 import {
   Container,
   Card,
@@ -12,8 +12,8 @@ import {
   CardGroup,
   Button,
   // Row,
-  Col,
-} from "reactstrap";
+  Col
+} from 'reactstrap';
 
 class Cardset extends Component {
   render() {
@@ -31,7 +31,7 @@ class Cardset extends Component {
           sm={cardWPhone}
           md={cardWTablet}
           lg={cardWDesktop}
-          className={classnames("card-col")}
+          className={classnames('card-col')}
         >
           <Card
             className={classnames(this.props.className, `h-100`, `shadow-sm`)}
@@ -54,17 +54,6 @@ class Cardset extends Component {
     });
 
     return (
-      // <section
-      //   className={`card-set ${
-      //     this.props.inGrid ? "container" : "container-fluid"
-      //   }`}
-      // >
-      //   {/* <Row> */}
-      //   <Title title={this.props.title} titleClass={this.props.class} />
-      //   {/* <div className="card-deck">{getCards}</div> */}
-      //   <CardGroup>{getCards}</CardGroup>
-      //   {/* </Row> */}
-      // </section>
       <section className={`card-set ${section.section_class}`}>
         <Container
           fluid={!content.containerized}
@@ -73,7 +62,7 @@ class Cardset extends Component {
           {section.section_title ? (
             <h2 className={section.section_class}>{section.section_title}</h2>
           ) : (
-            ""
+            ''
           )}
           {section.content ? (
             <ContentBlock content={content.section_content} />
@@ -84,7 +73,7 @@ class Cardset extends Component {
     );
   }
 }
-const Title = (props) =>
-  props.title ? <h2 className={props.titleClass}>{props.title}</h2> : null;
+// const Title = (props) =>
+//   props.title ? <h2 className={props.titleClass}>{props.title}</h2> : null;
 
 export default Cardset;

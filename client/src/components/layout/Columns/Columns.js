@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import classNames from "classnames";
-import { Row, Col, Container } from "reactstrap";
-import ContentBlock from "../../utilities/ContentBlock";
-import "./columns.scss";
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import { Row, Col, Container } from 'reactstrap';
+import ContentBlock from '../../utilities/ContentBlock';
+import './columns.scss';
 
 class Columns extends Component {
   render() {
@@ -52,7 +52,7 @@ class Columns extends Component {
           {section.section_title ? (
             <h2 className={section.section_class}>{section.section_title}</h2>
           ) : (
-            ""
+            ''
           )}
           {section.content ? (
             <ContentBlock content={content.section_content} />
@@ -63,9 +63,9 @@ class Columns extends Component {
     );
   }
 }
-const Title = (props) =>
-  props.title ? (
-    <h2 className={`section-title ${props.titleClass}`}>{props.title}</h2>
-  ) : null;
+// const Title = (props) =>
+//   props.title ? (
+//     <h2 className={`section-title ${props.titleClass}`}>{props.title}</h2>
+//   ) : null;
 
 export default Columns;
