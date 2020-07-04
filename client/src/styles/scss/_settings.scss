@@ -11,10 +11,11 @@ $secondary-light: lighten($secondary-color, 50%);
   --font-size-xsm: calc(0.625rem + 0.25vw);
   --font-size-sm: calc(0.75rem + 0.25vw);
   --font-size-med: calc(1.5rem + 0.25vw);
-  --font-size-lg: calc(1.75rem + 0.25vw);
-  --font-size-xlg: calc(2rem + 0.25vw);
+  --font-size-lg: calc(2rem + 0.25vw);
+  --font-size-xlg: calc(3rem + 0.25vw);
   --font-family: ProximaNova, 'Helvetica Neue', sans-serif;
-  --font-family-special: 'Novecento';
+  --font-family-cursive: Scriptina, cursive;
+  --font-family-heading: Novecento;
   //Colors
   --primary-color: #{$primary-color};
   --primary-light: #{$primary-light};
@@ -24,7 +25,7 @@ $secondary-light: lighten($secondary-color, 50%);
   --secondary-light: #{$secondary-light};
   // --secondary-color: #17a2b8;
   --basic-gray: #626364;
-  --dark-gray: #343a40;
+  --dark-gray: #3b2734; //matches navbar
   --lighter-gray: #929394;
   --button-learn-bg: var(--secondary-color);
 }

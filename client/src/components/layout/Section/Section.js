@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import classnames from "classnames";
-import { Container } from "reactstrap";
-import ContentBlock from "../../utilities/ContentBlock";
-import "./section.scss";
+import React, { Component } from 'react';
+import classnames from 'classnames';
+import { Container } from 'reactstrap';
+import ContentBlock from '../../utilities/ContentBlock';
+import './section.css';
 
 class Section extends Component {
   render() {
-    const section = this.props.section;
-    const bgImg = section.bg_img;
+    const { section } = this.props;
     const content = section.content;
-    const bgImgClass = bgImg ? "bg-img" : "";
 
-    console.log(section);
-    console.log(content);
+    const bgImg = section.bg_img;
+
+    const bgImgClass = bgImg ? 'bg-img' : '';
+
     return (
       <section
-        className={classnames(this.props.section.class, bgImgClass)}
+        className={classnames(section.section_class, bgImgClass)}
         style={bgImg ? { backgroundImage: `url(${bgImg.url})` } : null}
       >
         <Container
@@ -23,19 +23,25 @@ class Section extends Component {
           className={content.section_content_class}
         >
           <Title
-            title={this.props.section.title}
-            titleClass={this.props.section.titleClasses}
+            title={section.section_title}
+            titleClass={section.section_title_class}
+            tag={this.props.tag}
           />
-          {content ? <ContentBlock content={content.section_content} /> : null}
+          <ContentBlock
+            className={content.content_class}
+            content={content.section_content}
+          />
         </Container>
       </section>
     );
   }
 }
 
-const Title = (props) =>
-  props.title ? (
-    <h2 className={`section-title ${props.titleClass}`}>{props.title}</h2>
+const Title = props => {
+  const Tag = props.tag || 'h2';
+  return props.title ? (
+    <Tag className={`section-title ${props.className}`}>{props.title}</Tag>
   ) : null;
+};
 
-export default Section;
+export { Section, Title };

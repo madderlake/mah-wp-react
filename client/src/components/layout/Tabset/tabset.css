@@ -26,10 +26,10 @@
   .tab-pane {
     display: block !important;
     opacity: 1; }
-    .tab-pane .content-block {
+    .tab-pane .o-content-block {
       display: none;
       height: 0; }
-    .tab-pane.active .content-block {
+    .tab-pane.active .o-content-block {
       height: auto;
       min-height: 100px;
       transition: height 2s;

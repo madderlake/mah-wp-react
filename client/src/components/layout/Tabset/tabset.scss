@@ -41,11 +41,11 @@
     display: block !important;
     opacity: 1;
 
-    .content-block {
+    .o-content-block {
       display: none;
       height: 0;
     }
-    &.active .content-block {
+    &.active .o-content-block {
       height: auto;
       min-height: 100px;
       transition: height 2s;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Title } from '../Section/Section';
 import classnames from 'classnames';
 import ContentBlock from '../../utilities/ContentBlock';
 import './cards.scss';
@@ -59,21 +60,16 @@ class Cardset extends Component {
           fluid={!content.containerized}
           className={content.content_class}
         >
-          {section.section_title ? (
-            <h2 className={section.section_class}>{section.section_title}</h2>
-          ) : (
-            ''
-          )}
-          {section.content ? (
-            <ContentBlock content={content.section_content} />
-          ) : null}
+          <Title
+            className={section.section_title_class}
+            title={section.section_title}
+          />
+          <ContentBlock content={content.section_content} />
           <CardGroup>{getCards}</CardGroup>
         </Container>
       </section>
     );
   }
 }
-// const Title = (props) =>
-//   props.title ? <h2 className={props.titleClass}>{props.title}</h2> : null;
 
 export default Cardset;

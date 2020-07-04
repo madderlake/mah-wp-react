@@ -1,7 +1,7 @@
 body {
   font-size: var(--font-size);
   font-family: var(--font-family);
-  color: var(--basic-gray);
+  color: var(--dark-gray);
 }
 a {
   color: var(--secondary-color);
@@ -12,11 +12,21 @@ a {
 
 h1 {
   color: var(--primary-color);
+  font-weight: 300;
 }
 h2,
 .h2 {
   font-size: var(--font-size-lg);
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 300;
+
+  @include media-breakpoint-up(sm) {
+    font-size: calc(var(--font-size-lg) * 1.125);
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: calc(var(--font-size-lg) * 1.175);
+  }
 }
 
 h4,
@@ -38,14 +48,35 @@ h6 {
   margin-bottom: 1em;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 section {
-  //border-top: 1px solid #dddddd;
-  padding: 2rem 0;
+  //padding: 2rem 0;
+  margin: 2rem 0;
 
-  &.hero {
+  .section-title {
+    // padding: 1rem 0;
+    flex-basis: 100%;
+  }
+  &.bg-img {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    min-height: 40vh;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  &.c-hero {
+    margin-top: 0;
     padding-top: 0;
+    min-height: 50vh;
   }
 }
+
+//Buttons
 .btn-secondary {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);

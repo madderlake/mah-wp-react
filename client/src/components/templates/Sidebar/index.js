@@ -1,37 +1,32 @@
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
-import ContentBlock from '../../utilities/ContentBlock';
-
+import { Container, Row, Col } from 'reactstrap';
+//import ContentBlock from '../../utilities/ContentBlock';
+import FlexContent from '../FlexContent';
+import SidebarContent from '../../layout/Sidebar/Sidebar';
 import './index.css';
 
 class Sidebar extends Component {
+  render() {
+    if (this.props.data) {
+      const { sidebar_content } = this.props.data.acf;
+      const sidebarContent = sidebar_content.component;
+      console.log(sidebar_content.component);
+      return (
+        <Container>
+          <Row>
+            <Col md={8}>
+              <FlexContent data={this.props.data} />
+            </Col>
+            <Col md={4} className="c-sidebar">
+              <SidebarContent data={sidebarContent} />
+            </Col>
+          </Row>
+        </Container>
+      );
+    }
 
-	render() {
-
-		if (this.props.data) {
-
-			let data = this.props.data;
-
-			return (
-				<Container>
-					<Row className="pt-3">
-						<Col md={8}>	
-							<article className={`${this.props.slug} sidebar-template`}>
-								<h1>{data.title.rendered}</h1>
-								<ContentBlock content={data.content.rendered} />
-							</article>
-				
-							</Col>
-						<Col md={4}>
-							<h4>This is the sidebar - ready for widgets and such!</h4>
-						</Col>
-						</Row>
-				</Container>
-			);
-		}
-
-		return null;
-	}
+    return null;
+  }
 }
 
 export default Sidebar;

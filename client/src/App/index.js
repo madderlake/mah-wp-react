@@ -1,32 +1,32 @@
-import React, { Component } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import AsyncChunks from "../components/utilities/AsyncLoader";
-import NotFound from "../components/templates/NotFound";
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
-import LoadTemplate from "../components/templates/LoadTemplate";
-import api from "../api";
-import "../styles/scss/styles.scss";
+import React, { Component } from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import AsyncChunks from '../components/utilities/AsyncLoader';
+import NotFound from '../components/templates/NotFound';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import LoadTemplate from '../components/templates/LoadTemplate';
+import api from '../api';
+import './app.css';
 
-const mapStateToProps = (state) => ({
-  pageList: state.api.lists.pages,
+const mapStateToProps = state => ({
+  pageList: state.api.lists.pages
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  loadPages: (list) => dispatch({ type: "LOAD_PAGES_LIST", payload: list }),
+const mapDispatchToProps = dispatch => ({
+  loadPages: list => dispatch({ type: 'LOAD_PAGES_LIST', payload: list })
 });
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.buildRoutes = (pages) => {
+    this.buildRoutes = pages => {
       if (this.props.pageList && this.props.pageList.length > 0) {
         return [
           <Route
             key="posts"
-            render={(props) => (
+            render={props => (
               <LoadTemplate {...props} template="post" type="post" />
             )}
             exact
@@ -35,27 +35,27 @@ class App extends Component {
 
           pages.map((route, i) => {
             // If home, set path to empty string, = '/'
-            if (route.slug === "home") {
-              route.path = "";
+            if (route.slug === 'home') {
+              route.path = '';
             }
 
             // If template is blank, set to default
-            if (route.template === "") {
-              route.template = "default";
+            if (route.template === '') {
+              route.template = 'default';
             }
 
             // Default WP REST API expects /pages/ and /posts/ formatting
             // Custom post types are all singular (sigh)
             route.type =
-              route.type === "page"
-                ? "pages"
-                : route.type === "post"
-                ? "posts"
+              route.type === 'page'
+                ? 'pages'
+                : route.type === 'post'
+                ? 'posts'
                 : route.type;
 
             return (
               <Route
-                render={(props) => (
+                render={props => (
                   <LoadTemplate
                     {...props}
                     template={route.template}
@@ -74,12 +74,12 @@ class App extends Component {
             exact
             key="wp-draft"
             page="/wp-draft"
-            render={(props) => (
-              <LoadTemplate {...props} slug={"wp-draft"} type={"pages"} />
+            render={props => (
+              <LoadTemplate {...props} slug={'wp-draft'} type={'pages'} />
             )}
           />,
 
-          <Route key="not-found" component={NotFound} />,
+          <Route key="not-found" component={NotFound} />
         ];
       }
     };

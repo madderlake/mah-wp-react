@@ -15,162 +15,174 @@ import canUseDom from '../../../utilities/canUseDom';
 import Footer from '../../layout/Footer';
 import api from '../../../api';
 
-const AsyncDefault = AsyncChunks.generateChunk(() => 
-	import( /* webpackChunkName: "Default" */ '../Default'));
+const AsyncDefault = AsyncChunks.generateChunk(() =>
+  import(/* webpackChunkName: "Default" */ '../Default')
+);
 
-const AsyncHome = AsyncChunks.generateChunk(() => 
-	import( /* webpackChunkName: "Home" */ '../Home'));
+const AsyncHome = AsyncChunks.generateChunk(() =>
+  import(/* webpackChunkName: "Home" */ '../Home')
+);
 
-const AsyncPost = AsyncChunks.generateChunk(() => 
-	import( /* webpackChunkName: "Post" */ '../Post'));
+const AsyncPost = AsyncChunks.generateChunk(() =>
+  import(/* webpackChunkName: "Post" */ '../Post')
+);
 
-const AsyncSidebar = AsyncChunks.generateChunk(() => 
-	import( /* webpackChunkName: "Sidebar" */ '../Sidebar'));
-	
-const AsyncFlex = AsyncChunks.generateChunk(() => 
-	import( /* webpackChunkName: "FlexContent" */ '../FlexContent'));
+const AsyncSidebar = AsyncChunks.generateChunk(() =>
+  import(/* webpackChunkName: "Sidebar" */ '../Sidebar')
+);
 
+const AsyncFlex = AsyncChunks.generateChunk(() =>
+  import(/* webpackChunkName: "FlexContent" */ '../FlexContent')
+);
 
 const templates = {
-	home: AsyncHome,
-	default: AsyncDefault,
-	post: AsyncPost,
-	sidebar: AsyncSidebar,
-	flex: AsyncFlex
-}
+  home: AsyncHome,
+  default: AsyncDefault,
+  post: AsyncPost,
+  sidebar: AsyncSidebar,
+  flex: AsyncFlex
+};
 
 const mapStateToProps = state => ({
-	data: state.api.data
+  data: state.api.data
 });
 
 const mapDispatchToProps = dispatch => ({
-	load: (data) => dispatch({ type: 'LOAD_DATA_BY_SLUG', payload: data })
+  load: data => dispatch({ type: 'LOAD_DATA_BY_SLUG', payload: data })
 });
 
 class LoadTemplate extends Component {
+  constructor(props) {
+    super(props);
 
-	constructor(props) {
-		super(props);
+    this.state = {
+      preview: false,
+      template: this.props.template ? this.props.template : 'default',
 
-		this.state = {
-			preview: false,
-			template: this.props.template ? this.props.template : 'default',
+      // Slug will either come from a prop or a URL param from Router
+      // Necessary because some slugs come from URL params
+      slug: this.props.slug ? this.props.slug : this.props.match.params.slug
+    };
 
-			// Slug will either come from a prop or a URL param from Router
-			// Necessary because some slugs come from URL params
-			slug: this.props.slug 
-				? this.props.slug 
-				: this.props.match.params.slug
-		}
+    this.fetchData();
+  }
 
-		this.fetchData();
-	}
+  checkForPreview() {
+    if (canUseDom) {
+      let params = [];
 
-	checkForPreview() {
-		if (canUseDom) {
-			let params = [];
+      params = queryString.parse(window.location.search, {
+        ignoreQueryPrefix: true
+      });
 
-			params = queryString.parse(
-				window.location.search,
-				{ ignoreQueryPrefix: true }
-			);
+      if (
+        params.preview === 'true' &&
+        params._wpnonce &&
+        this.state.preview === false
+      ) {
+        if (params.id) {
+          api.Content.previewDataById(
+            this.props.type,
+            params.id,
+            params._wpnonce
+          ).then(
+            res => {
+              this.setState({ preview: res });
+            },
+            error => {
+              console.warn(error);
+              this.props.history.push('/not-found');
+            }
+          );
+        } else {
+          api.Content.previewDataBySlug(
+            this.props.type,
+            this.state.slug,
+            params._wpnonce
+          ).then(
+            res => {
+              this.setState({ preview: res });
+            },
+            error => {
+              console.warn(error);
+              this.props.history.push('/not-found');
+            }
+          );
+        }
+      }
+    }
+  }
 
-			if (params.preview === 'true' && params._wpnonce && this.state.preview === false) {
-				if (params.id) {
-					api.Content.previewDataById( this.props.type, params.id, params._wpnonce).then(
-						res => {
-							this.setState({ preview: res });
-						},
-						error => {
-							console.warn(error);
-							this.props.history.push('/not-found');
-						}
-					);
-				} else {
-					api.Content.previewDataBySlug( this.props.type, this.state.slug, params._wpnonce).then(
-						res => {
-							this.setState({ preview: res })
-						},
-						error => {
-							console.warn(error);
-							this.props.history.push('/not-found');
-						}
-					);
-				}
-			}
-		}
-	}
+  fetchData() {
+    if (!this.props.data[this.props.type][this.state.slug]) {
+      // Load page content from API by slug
+      api.Content.dataBySlug(this.props.type, this.state.slug).then(
+        res => {
+          this.props.load({
+            type: this.props.type,
+            slug: this.state.slug,
+            data: res
+          });
+        },
+        error => {
+          console.warn(error);
+        }
+      );
+    }
+  }
 
-	fetchData() {
-		if (!this.props.data[this.props.type][this.state.slug]) {
-			// Load page content from API by slug
-			api.Content.dataBySlug(this.props.type, this.state.slug).then(
-				res => {
-					this.props.load({
-						type: this.props.type,
-						slug: this.state.slug,
-						data: res
-					})
-				},
-				error => {
-					console.warn(error);
-				}
-			);
-		}
-	}
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.slug !== this.props.match.params.slug) {
+      this.setState({
+        slug: this.props.match.params.slug
+      });
+    }
+  }
 
-	componentDidUpdate(prevProps) {
-		if (prevProps.match.params.slug !== this.props.match.params.slug) {
-			this.setState({
-				slug: this.props.match.params.slug
-			})
-		}
-	}
+  render() {
+    this.checkForPreview();
 
-	render() {
+    let data = this.state.preview;
 
-		this.checkForPreview();
+    if (
+      !this.state.preview &&
+      this.props.data[this.props.type] &&
+      this.props.data[this.props.type][this.state.slug]
+    ) {
+      data = this.props.data[this.props.type][this.state.slug];
+    }
 
-		let data = this.state.preview;
-		
-		if (!this.state.preview && this.props.data[this.props.type] && this.props.data[this.props.type][this.state.slug]) {
-			data = this.props.data[this.props.type][this.state.slug];
-		}
+    let Meta = () => null;
 
-		let Meta = () => null;
+    const Template = templates[this.state.template];
 
+    if (!Template) {
+      return <Redirect to="/not-found" />;
+    }
 
-		//const Template = templates[this.props.template];
-		//console.log(this.props.template);
+    if (data) {
+      Meta = () => {
+        return (
+          <Helmet>
+            <title>{data.acf.metaTitle}</title>
+            <meta name="description" content={data.acf.metaDescription} />
+            <meta name="keywords" content={data.acf.metaKeywords} />
+          </Helmet>
+        );
+      };
+    }
 
-		const Template = templates[this.state.template];
-		//console.log(this.state.template);
-
-
-		if (!Template) {
-			return <Redirect to="/not-found"/>;
-		}
-
-		if (data) {
-			Meta = () => {
-				return (
-					<Helmet>
-						<title>{data.acf.metaTitle}</title>
-						<meta name="description" content={data.acf.metaDescription} />
-						<meta name="keywords" content={data.acf.metaKeywords} />
-					</Helmet>
-				)
-			}
-		}
-
-		return (
-			<div className="template-wrap">
-				<Meta />
-				<Template data={data} slug={this.state.slug} />
-				<Footer />
-			</div>
-		);
-	}
+    return (
+      <div className="template-wrap">
+        <Meta />
+        <Template data={data} slug={this.state.slug} />
+        <Footer />
+      </div>
+    );
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoadTemplate);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoadTemplate);

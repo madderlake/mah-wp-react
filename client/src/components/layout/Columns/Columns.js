@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Row, Col, Container } from 'reactstrap';
 import ContentBlock from '../../utilities/ContentBlock';
+import { Title } from '../Section/Section';
 import './columns.scss';
 
 class Columns extends Component {
@@ -42,14 +43,11 @@ class Columns extends Component {
           fluid={!content.containerized}
           className={content.content_class}
         >
-          {section.section_title ? (
-            <h2 className={section.section_class}>{section.section_title}</h2>
-          ) : (
-            ''
-          )}
-          {section.content ? (
-            <ContentBlock content={content.section_content} />
-          ) : null}
+          <Title
+            className={section.section_title_class}
+            title={section.section_title}
+          />
+          <ContentBlock content={content.section_content} />
           <Row>{getCols}</Row>
         </Container>
       </section>

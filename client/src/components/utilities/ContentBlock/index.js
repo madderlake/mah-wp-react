@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import "./index.css";
+import React, { Component } from 'react';
+import './index.css';
 
 class ContentBlock extends Component {
   render() {
-    return (
+    return this.props.content ? (
       <div
-        className="content-block"
-        dangerouslySetInnerHTML={{ __html: this.props.content || "No HTML" }}
+        className={`o-content-block ${this.props.className}`}
+        dangerouslySetInnerHTML={{ __html: this.props.content || 'No HTML' }}
       />
-    );
+    ) : null;
   }
 }
 

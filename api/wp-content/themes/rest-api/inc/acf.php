@@ -91,3 +91,9 @@ function mah_acf_admin_head() {
 
 add_action('acf/input/admin_head', 'mah_acf_admin_head');
 
+add_action( 'acf/init', "rm_content_editor");
+
+function rm_content_editor () {
+  remove_post_type_support( 'post', 'editor' );
+  remove_post_type_support( 'page', 'editor' );
+};

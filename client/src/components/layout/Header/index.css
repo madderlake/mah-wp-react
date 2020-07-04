@@ -1,10 +1,22 @@
-.header-main .navbar {
-  flex-basis: 40%; }
-  .header-main .navbar .nav-item {
-    flex-basis: 20%; }
+.header-main .navbar .nav-item {
+  flex-basis: 20%; }
+
+.header-main .navbar .nav-link {
+  text-transform: uppercase; }
   .header-main .navbar .nav-link.active {
     color: var(--primary-color); }
-  .header-main .navbar .container {
-    justify-content: flex-end; }
+
+.header-main .navbar .container,
+.header-main .navbar .container-fluid {
+  justify-content: flex-end; }
+
+.header-main .navbar.bg-dark {
+  background-color: #3b2734 !important; }
   .header-main .navbar.bg-dark .nav-link {
     color: white; }
+
+.header-main .navbar .logo-wrap {
+  position: absolute;
+  padding: 2rem;
+  margin-left: 2rem;
+  z-index: 9; }

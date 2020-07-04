@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import Section from "../../layout/Section/Section";
-import Tabset from "../../layout/Tabset/Tabset";
-import Cardset from "../../layout/Cards/Cards";
-import Columns from "../../layout/Columns/Columns";
+import React, { Component } from 'react';
+import { Section } from '../../layout/Section/Section';
+import Tabset from '../../layout/Tabset/Tabset';
+import Cardset from '../../layout/Cards/Cards';
+import Columns from '../../layout/Columns/Columns';
 //import Row from 'reactstrap';
-import "./index.css";
+import './index.css';
 
 class FlexContent extends Component {
   render() {
@@ -20,52 +20,38 @@ class FlexContent extends Component {
         let sectionProps = {
           key: index,
           section: layout.section_m,
-          // inGrid: layout.section_m.in_grid,
-          // class: layout.section_class,
-          // title: layout.section_title,
-          // titleClasses: layout.section_title_class,
           content: layout.content,
-          inGrid: layout.in_grid,
-          //bgImg: layout.bg_img,
+          inGrid: layout.in_grid
         };
-        //console.log(sectionProps);
+
         let tabsetProps = {
           key: index,
           section: layout.section_m,
-          // title: layout.section_title,
-          // titleClasses: layout.section_title_class,
-          // tabsetClass: layout.tabset_class,
-          // id: layout.tabset_name,
           tab: layout.tab,
-          inGrid: layout.in_grid,
+          inGrid: layout.in_grid
         };
 
         let cardProps = {
           key: index,
           section: layout.section_m,
-          // title: layout.section_title,
-          // class: layout.title_class,
           card: layout.card,
-          // button: layout.button,
-          // inGrid: layout.in_grid,
-          columns: layout.num_col,
+          columns: layout.num_col
         };
 
         let colProps = {
           key: index,
           section: layout.section_m,
-          //inGrid: layout.in_grid,
           num_col: layout.num_columns,
           containerized: layout.containerized,
-          columns: layout.col_group,
+          columns: layout.col_group
         };
 
         switch (fc_layout) {
-          case "tab_set":
+          case 'tab_set':
             return <Tabset {...tabsetProps} />;
-          case "columns":
+          case 'columns':
             return <Columns {...colProps} />;
-          case "cards":
+          case 'cards':
             return <Cardset {...cardProps} />;
           default:
             return <Section {...sectionProps} />;
@@ -74,11 +60,11 @@ class FlexContent extends Component {
 
       return (
         <div className={acf.page_class}>
-          <article className={`${this.props.slug} flex-template`}>
+          <article className={`flex-content ${this.props.data.slug} `}>
             {pageTitle ? (
               <h1 className={`container ${pageTitleClass}`}>{pageTitle}</h1>
             ) : (
-              ""
+              ''
             )}
             {getLayouts}
           </article>

@@ -6,6 +6,7 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
+  //Col,
   Container,
   Collapse
 } from 'reactstrap';
@@ -13,6 +14,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import api from '../../../api';
 import './index.scss';
+import Logo from '../../../static/imgs/mah.svg';
 
 const mapStateToProps = state => ({
   mainMenu: state.api.menus.main
@@ -64,20 +66,25 @@ class Header extends Component {
   render() {
     return (
       <header className="header-main">
-        {/* <Container> */}
-        <Navbar /*collapseOnSelect*/ expand="md" color="dark">
-          <NavbarBrand href="/">Mary A. Hayne</NavbarBrand>
+        <Navbar expand="md" color="dark" dark>
+          {/* <NavbarBrand href="/">Mary A. Hayne</NavbarBrand> */}
+          <NavbarBrand href="/">
+            <img src={Logo} alt="Mary A. Hayne" width={85} />
+          </NavbarBrand>
           <NavbarToggler
             onClick={this.toggle}
             aria-controls="responsive-navbar-nav"
           />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Container>
+            {/* <Col sm="3" md="2" className="logo-wrap"> */}
+
+            {/* </Col> */}
+            <Container fluid={true} className="mah-nav">
               <Nav
                 className="navbar"
                 fill
-                //activeKey={this.selectedKey}
-                //onSelect={this._onSelect}
+                // activeKey={this.selectedKey}
+                // onSelect={this._onSelect}
               >
                 {this.buildMenu()}
               </Nav>
