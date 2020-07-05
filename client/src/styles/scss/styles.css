@@ -1186,6 +1186,7 @@ img {
 section {
   margin: 2rem 0; }
   section .section-title {
+    padding: 0.5em 0 1em;
     flex-basis: 100%; }
   section.bg-img {
     background-size: 100% auto;
@@ -1193,6 +1194,8 @@ section {
     min-height: 40vh;
     background-size: cover;
     background-position: center center; }
+  section:first-child.bg-img {
+    margin-top: 0; }
   section.c-hero {
     margin-top: 0;
     padding-top: 0;
