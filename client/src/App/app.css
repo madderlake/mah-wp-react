@@ -7163,7 +7163,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 /*This until color-mod is cool with W3C - these are colors that we're modifying using existing functions in Sass*/
 :root {
-  --base-font-size: 100%;
+  --base-font-size: 1em;
+  --scale-factor: 1.25;
   --font-size: calc(1rem + 0.25vw);
   --font-size-xsm: calc(0.625rem + 0.25vw);
   --font-size-sm: calc(0.75rem + 0.25vw);
@@ -7175,8 +7176,30 @@ a.text-dark:hover, a.text-dark:focus {
   --font-family-heading: Novecento;
   --primary-color: #ed1249;
   --primary-light: #fcdbe4;
-  --secondary-color: #089fc7;
-  --secondary-light: #d1f4fd;
+  --secondary-color: #0632a6;
+  --secondary-light: #afc4fc;
+  --basic-gray: #626364;
+  --dark-gray: #3b2734;
+  --lighter-gray: #929394;
+  --button-learn-bg: var(--secondary-color); }
+
+/*This until color-mod is cool with W3C - these are colors that we're modifying using existing functions in Sass*/
+:root {
+  --base-font-size: 1em;
+  --scale-factor: 1.25;
+  --font-size: calc(1rem + 0.25vw);
+  --font-size-xsm: calc(0.625rem + 0.25vw);
+  --font-size-sm: calc(0.75rem + 0.25vw);
+  --font-size-med: calc(1.5rem + 0.25vw);
+  --font-size-lg: calc(2rem + 0.25vw);
+  --font-size-xlg: calc(3rem + 0.25vw);
+  --font-family: ProximaNova, 'Helvetica Neue', sans-serif;
+  --font-family-cursive: Scriptina, cursive;
+  --font-family-heading: Novecento;
+  --primary-color: #ed1249;
+  --primary-light: #fcdbe4;
+  --secondary-color: #0632a6;
+  --secondary-light: #afc4fc;
   --basic-gray: #626364;
   --dark-gray: #3b2734;
   --lighter-gray: #929394;
@@ -8295,8 +8318,12 @@ a.text-dark:hover, a.text-dark:focus {
   font-weight: normal;
   font-style: normal; }
 
+html {
+  font-size: var(--base-font-size); }
+
 body {
-  font-size: var(--font-size);
+  font-size: var(--base-font-size);
+  font-size: 1rem;
   font-family: var(--font-family);
   color: var(--dark-gray); }
 
@@ -8305,23 +8332,29 @@ a {
   a:hover {
     color: var(--primary-color); }
 
-h1 {
+h1, .h1 {
+  font-size: calc((var(--scale-factor) * (var(--base-font-size))) * 2.4414);
   color: var(--primary-color);
   font-weight: 300; }
 
 h2, .h2 {
-  font-size: var(--font-size-lg);
+  font-size: calc((var(--scale-factor) * var(--base-font-size)) * 1.953125);
   color: var(--primary-color);
   font-weight: 300; }
-  @media (min-width: 576px) {
-    h2, .h2 {
-      font-size: calc(var(--font-size-lg) * 1.125); } }
-  @media (min-width: 768px) {
-    h2, .h2 {
-      font-size: calc(var(--font-size-lg) * 1.175); } }
+
+h3, .h3 {
+  font-size: calc((var(--scale-factor) * var(--base-font-size)) * 1.5625);
+  color: var(--secondary-color);
+  font-weight: 400; }
 
 h4, .h4 {
-  font-size: 1.25rem; }
+  font-size: calc( (var(--scale-factor) * var(--base-font-size)) * var(--scale-factor));
+  color: var(--dark-gray);
+  font-weight: 500; }
+
+h5, .h5 {
+  font-size: calc(var(--base-font-size) * var(--scale-factor));
+  color: var(--dark-gray); }
 
 .h1,
 .h2,
@@ -8335,7 +8368,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 1em; }
+  margin: 0.5em 0; }
 
 img {
   display: block;
@@ -8343,9 +8376,8 @@ img {
   height: auto; }
 
 section {
-  margin: 2rem 0; }
+  margin: 2rem 0 1rem; }
   section .section-title {
-    padding: 0.5em 0 1em;
     flex-basis: 100%; }
   section.bg-img {
     background-size: 100% auto;
@@ -8372,6 +8404,8 @@ section {
   position: relative;
   z-index: 10;
   padding: 1rem 0; }
+  .o-content-block p {
+    font-size: calc(var(--base-font-size) * var(--scale-factor)); }
 
 .novo {
   font-family: Novecento, ProximaNova, 'Helvetica Neue', Helvetica, sans-serif; }

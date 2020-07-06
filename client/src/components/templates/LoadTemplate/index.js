@@ -12,7 +12,7 @@ import queryString from 'qs';
 
 import AsyncChunks from '../../utilities/AsyncLoader';
 import canUseDom from '../../../utilities/canUseDom';
-import Footer from '../../layout/Footer';
+//import Footer from '../../layout/Footer';
 import api from '../../../api';
 
 const AsyncDefault = AsyncChunks.generateChunk(() =>
@@ -176,7 +176,7 @@ class LoadTemplate extends Component {
       <div className="template-wrap">
         <Meta />
         <Template data={data} slug={this.state.slug} />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

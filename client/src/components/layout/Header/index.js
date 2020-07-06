@@ -6,14 +6,13 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  //Col,
   Container,
   Collapse
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import api from '../../../api';
-import './index.scss';
+import './index.css';
 import Logo from '../../../static/imgs/mah.svg';
 
 const mapStateToProps = state => ({
@@ -67,7 +66,6 @@ class Header extends Component {
     return (
       <header className="header-main">
         <Navbar expand="md" color="dark" dark>
-          {/* <NavbarBrand href="/">Mary A. Hayne</NavbarBrand> */}
           <NavbarBrand href="/">
             <img src={Logo} alt="Mary A. Hayne" width={85} />
           </NavbarBrand>
@@ -76,9 +74,6 @@ class Header extends Component {
             aria-controls="responsive-navbar-nav"
           />
           <Collapse isOpen={this.state.isOpen} navbar>
-            {/* <Col sm="3" md="2" className="logo-wrap"> */}
-
-            {/* </Col> */}
             <Container fluid={true} className="mah-nav">
               <Nav
                 className="navbar"

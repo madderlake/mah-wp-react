@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Container } from 'reactstrap';
 
 import './index.css';
 
-class Footer extends Component {
-
-	render() {
-		return (
-			<footer className="footer">
-			</footer>
-		);
-	}
-}
+const Footer = props => {
+  return (
+    <footer className="footer">
+      <Container className="text-center py-5">
+        <span className="copyright text-small text-center">
+          Mary A. Hayne All Rights reserved &copy;{new Date().getFullYear()}
+        </span>
+      </Container>
+    </footer>
+  );
+};
 
 export default Footer;
