@@ -23,7 +23,7 @@ const Cardset = props => {
   const getCards = cardList.map((card, index) => {
     return (
       <Col
-        key={index}
+        key={`card-${index}`}
         sm={cardWPhone}
         md={cardWTablet}
         lg={cardWDesktop}

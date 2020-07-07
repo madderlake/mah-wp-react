@@ -18,7 +18,7 @@ const Columns = props => {
 
     return (
       <Col
-        key={index}
+        key={`col-${index}`}
         sm={phoneWidth}
         md={tabletWidth}
         lg={desktopWidth}

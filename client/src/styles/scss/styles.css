@@ -1171,25 +1171,25 @@ a {
 
 h1,
 .h1 {
-  font-size: calc((var(--scale-factor) * (var(--base-font-size))) * 2.4414);
+  font-size: calc( (var(--scale-factor) * (var(--base-font-size))) * 2.44141 - 0.25vw);
   color: var(--primary-color);
   font-weight: 300; }
 
 h2,
 .h2 {
-  font-size: calc((var(--scale-factor) * var(--base-font-size)) * 1.953125);
+  font-size: calc( (var(--scale-factor) * var(--base-font-size)) * 1.95312 - 0.25vw);
   color: var(--primary-color);
   font-weight: 300; }
 
 h3,
 .h3 {
-  font-size: calc((var(--scale-factor) * var(--base-font-size)) * 1.5625);
+  font-size: calc( (var(--scale-factor) * var(--base-font-size)) * 1.5625 - 0.25vw);
   color: var(--secondary-color);
   font-weight: 400; }
 
 h4,
 .h4 {
-  font-size: calc( (var(--scale-factor) * var(--base-font-size)) * var(--scale-factor));
+  font-size: calc( var(--scale-factor) * var(--base-font-size) * 1.25 - 0.25vw);
   color: var(--dark-gray);
   font-weight: 500; }
 
