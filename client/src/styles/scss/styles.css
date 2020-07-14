@@ -17,7 +17,7 @@
   --secondary-light: #afc4fc;
   --basic-gray: #626364;
   --dark-gray: #3b2734;
-  --lighter-gray: #929394;
+  --light-gray: #929394;
   --button-learn-bg: var(--secondary-color); }
 
 /*This until color-mod is cool with W3C - these are colors that we're modifying using existing functions in Sass*/
@@ -39,7 +39,7 @@
   --secondary-light: #afc4fc;
   --basic-gray: #626364;
   --dark-gray: #3b2734;
-  --lighter-gray: #929394;
+  --light-gray: #929394;
   --button-learn-bg: var(--secondary-color); }
 
 @font-face {
