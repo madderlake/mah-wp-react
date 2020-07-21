@@ -5,7 +5,8 @@ body {
   font-size: var(--base-font-size);
   font-size: 1rem;
   font-family: var(--font-family);
-  color: var(--dark-gray);
+  color: var(--basic-black);
+  padding-top: var(--header-allowance);
 }
 a {
   color: var(--secondary-color);

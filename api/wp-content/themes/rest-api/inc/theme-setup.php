@@ -11,7 +11,7 @@ function react_wp_rest_setup() {
 	);
 	//add_theme_support( 'editor-styles' );
 	add_theme_support( 'wp-block-styles' );
-  
+
 	// Enqueue editor styles.
 	add_editor_style( 'assets/css/style-editor.css' );
 }
@@ -62,4 +62,23 @@ add_action(
 		}
 	}
 );
+/**
+ * Add a Formatted Date to the WordPress REST API JSON Post Object
+ *
+ * https://adambalee.com/?p=1547
+ */
+add_action('rest_api_init', function() {
+    register_rest_field(
+        array('post'),
+        'formatted_date',
+        array(
+            'get_callback'    => function() {
+                return get_the_date();
+            },
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+});
+
 ?>

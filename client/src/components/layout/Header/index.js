@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import api from '../../../api';
 import './index.css';
-import Logo from '../../../static/imgs/mah.svg';
+import Logo from '../../../assets/imgs/mah.svg';
 
 const mapStateToProps = state => ({
   mainMenu: state.api.menus.main
@@ -91,9 +91,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Header)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

@@ -9,10 +9,8 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import queryString from 'qs';
-
 import AsyncChunks from '../../utilities/AsyncLoader';
 import canUseDom from '../../../utilities/canUseDom';
-//import Footer from '../../layout/Footer';
 import api from '../../../api';
 
 const AsyncDefault = AsyncChunks.generateChunk(() =>
@@ -25,6 +23,10 @@ const AsyncHome = AsyncChunks.generateChunk(() =>
 
 const AsyncPost = AsyncChunks.generateChunk(() =>
   import(/* webpackChunkName: "Post" */ '../Post')
+);
+
+const AsyncBlog = AsyncChunks.generateChunk(() =>
+  import(/* webpackChunkName: "Post" */ '../Blog')
 );
 
 const AsyncSidebar = AsyncChunks.generateChunk(() =>
@@ -40,7 +42,8 @@ const templates = {
   default: AsyncDefault,
   post: AsyncPost,
   sidebar: AsyncSidebar,
-  flex: AsyncFlex
+  flex: AsyncFlex,
+  blog: AsyncBlog
 };
 
 const mapStateToProps = state => ({
@@ -63,7 +66,7 @@ class LoadTemplate extends Component {
       // Necessary because some slugs come from URL params
       slug: this.props.slug ? this.props.slug : this.props.match.params.slug
     };
-
+    console.log(this.state);
     this.fetchData();
   }
 
@@ -129,6 +132,7 @@ class LoadTemplate extends Component {
         }
       );
     }
+    console.log(this.props.type);
   }
 
   componentDidUpdate(prevProps) {
@@ -173,7 +177,7 @@ class LoadTemplate extends Component {
     }
 
     return (
-      <div className="template-wrap">
+      <div className={`${this.state.template}-template`}>
         <Meta />
         <Template data={data} slug={this.state.slug} />
         {/* <Footer /> */}
@@ -182,7 +186,4 @@ class LoadTemplate extends Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoadTemplate);
+export default connect(mapStateToProps, mapDispatchToProps)(LoadTemplate);

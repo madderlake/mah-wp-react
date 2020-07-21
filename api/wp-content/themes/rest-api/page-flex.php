@@ -2,4 +2,4 @@
 /*
 	Template Name: Flex Content
 */
-?>
+

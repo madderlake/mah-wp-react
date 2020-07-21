@@ -3,7 +3,7 @@ $primary-color: #ed1249;
 $primary-light: lighten($primary-color, 42.5%);
 //$secondary-color: #0037ca;
 //$secondary-color: #089fc7;
-$secondary-color: #0632a6;
+$secondary-color: #2b93df;
 $secondary-light: lighten($secondary-color, 50%);
 //need to use in sass font-size functions
 $base-font-size: 1em;
@@ -32,5 +32,8 @@ $scale-factor: 1.25;
   --basic-gray: #626364;
   --dark-gray: #3b2734; //matches navbar
   --light-gray: #929394;
+  --basic-black: #000000;
   --button-learn-bg: var(--secondary-color);
+  //Measurements
+  --header-allowance: 5rem;
 }

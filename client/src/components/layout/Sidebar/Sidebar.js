@@ -13,7 +13,7 @@ class SidebarContent extends Component {
       // let sidebar = acf.sidebar_content;
       // const layouts = sidebar.component;
       const layouts = this.props.data;
-      console.log(layouts);
+      //console.log(layouts);
 
       const getLayouts = layouts.map((layout, index) => {
         const fc_layout = layout.acf_fc_layout;
@@ -55,7 +55,7 @@ class SidebarContent extends Component {
 const Listing = props => {
   const listing = props.listing;
   const title = props.title;
-  console.log(title);
+  //console.log(title);
   const listItems = listing.map(item => (
     <li key={item.ID}>{item.post_title}</li>
   ));
