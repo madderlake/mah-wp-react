@@ -17,12 +17,14 @@ const Blog = props => {
   });
   const type = props.slug === 'blog' ? 'posts' : props.type;
   const url = `${API_ROOT}/wp-json/wp/v2/${type}/?_embed`;
-  useEffect(() => {
-    console.log('effect');
+  const fetchPosts = () => {
     superagent
       .get(url)
       .then(res => res.body)
       .then(posts => setAppState({ loading: false, posts: posts }));
+  };
+  useEffect(() => {
+    fetchPosts();
   }, [setAppState]);
 
   if (props.data) {
